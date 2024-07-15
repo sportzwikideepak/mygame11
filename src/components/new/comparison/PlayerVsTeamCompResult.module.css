@@ -1,0 +1,266 @@
+/* .........Player vs player comp......... */
+
+.card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  color: #4b5563;
+}
+
+.header5 {
+  display: flex;
+  background-color: #fff;
+  padding: 16px;
+  align-items: center;
+  gap: 10px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  color: #504f4f;
+  border-bottom: 0.2px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.comparisoncontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  background-image: url(/static/Decorate.svg);
+  border-radius: 8px;
+  margin: 15px 15px 0 15px;
+  background-color: #001240;
+  color: white;
+  align-items: center;
+}
+.backimage {
+  position: absolute;
+}
+.topcompare {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+}
+.playertab {
+  display: flex;
+  gap: 6px;
+  align-items: self-start;
+}
+.playerexit {
+  cursor: pointer;
+  width: 21px;
+  height: 21px;
+}
+.playerimg {
+  width: 99px;
+  height: 84px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.playerdetails {
+  display: flex;
+  align-items: center;
+}
+
+.playerdetails h3 {
+  color: #000000;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: 2px;
+  width: 100%;
+  display: inline-block;
+  width: 90px;
+  white-space: nowrap;
+  padding: 2px;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.textright {
+  display: flex;
+  align-items: center;
+}
+.matchtype {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.matchicon {
+  width: 78px;
+  height: 78px;
+}
+
+.selectors select {
+  width: 100%;
+  background-color: white;
+  color: #504f4f;
+  padding: 6px 8px;
+  border-radius: 20px;
+}
+.selectors {
+  display: flex;
+  gap: 20px;
+  margin: 0 150px;
+  margin-top: -10px;
+}
+
+.textdata {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.container7 {
+  background-color: #ffffff;
+  color: #1a202c;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.statslist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.statslist li {
+  margin-bottom: 0;
+}
+.statitem,
+.statitem1 {
+  padding: 11px 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 0.2px solid #e5e7eb;
+  color: #1a202c;
+}
+.statitem1 {
+  color: #626262;
+}
+
+.leftteam {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 95px;
+  font-size: 14px;
+  justify-content: center;
+}
+.leftteam img {
+  width: 18px;
+  height: 18px;
+}
+.bottomselector {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.matchinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #001240;
+  color: #ffffff;
+  margin: 15px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 15px;
+}
+.playername,
+.player3name {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+  width: 105px;
+  white-space: nowrap;
+  padding: 2px;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+.vsicon1 {
+  width: 43px;
+  height: 43px;
+}
+.player3name {
+  display: flex;
+  justify-content: end;
+}
+.player3 {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+}
+
+.player3name {
+  text-align: right;
+}
+.destination {
+  display: flex;
+  gap: 10px;
+}
+.role1 {
+  font-size: smaller;
+}
+
+.statsgrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 0 15px 15px 15px;
+}
+
+.stat {
+  background: #f8faff;
+  padding: 25px 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.statcategory {
+  color: #626262;
+  font-size: smaller;
+  font-size: 14px;
+}
+
+.statvalue {
+  font-size: larger;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 13px;
+  font-size: 16px;
+}
+
+@media (max-width: 775px) {
+  .selectors {
+    gap: 10px;
+    margin: 0 100px;
+  }
+  .selectors select {
+    padding: 4px 8px;
+  }
+}
+@media (max-width: 500px) {
+  .selectors {
+    gap: 10px;
+    margin: 0;
+  }
+}
+@media (max-width: 440px) {
+  .leftteam {
+    min-width: auto;
+    /* display: block; */
+  }
+}

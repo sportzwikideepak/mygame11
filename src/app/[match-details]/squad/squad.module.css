@@ -1,0 +1,45 @@
+.Compareplayers {
+  width: 41.6%;
+  background-color: #f4f5f9;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  padding: 13px 15px;
+}
+.Comparetab {
+  background: #ffffff;
+  border-radius: 20px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.Comparetab img {
+  width: 24px;
+  height: 24px;
+}
+.Comparetab span {
+  color: #000000;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .Compareplayers {
+    width: 100%;
+ 
+    bottom: 0;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}

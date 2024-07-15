@@ -1,0 +1,49 @@
+/* ......Overview header...... */
+
+.header {
+  background-color: #001240;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.iconButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 14px;
+}
+
+.main {
+  display: flex;
+  width: 1012px;
+  justify-content: space-between;
+  padding: 0 15px;
+  align-items: center;
+}
+
+@media (max-width: 1012px) {
+  .main {
+    width: 100%;
+  }
+  .header {
+    justify-content: left;
+  }
+}
+
+@media (max-width: 775px) {
+  .main {
+    padding: 0;
+  }
+}

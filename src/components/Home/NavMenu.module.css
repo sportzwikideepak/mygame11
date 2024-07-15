@@ -1,0 +1,209 @@
+.main::-webkit-scrollbar {
+  width: 7px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 25px;
+}
+.page {
+  background-color: #3e3e3e;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  background-color: #f8f8fb;
+  width: 750px;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+/* ...........navbar........... */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #f8f8fb;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 16px 25px;
+  border-bottom: 1px solid #f8f8fb;
+}
+
+.backbutton {
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.backbutton .arrow {
+  margin-right: 8px;
+}
+.arrow img {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  color: black;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ...........hamburger........... */
+
+.container {
+  background-color: white;
+  margin-bottom: 70px;
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+}
+
+.profileimage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+.profilename {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.profilename img {
+  width: 20px;
+  height: 20px;
+}
+
+.heading {
+  color: #000000;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.paragraph {
+  color: #71717a;
+}
+
+.link-container {
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+  display: block;
+  padding: 18px 0;
+  text-align: center;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.link:hover {
+  background-color: #f3f4f6;
+}
+
+.dropdown,
+.button {
+  width: 150px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dropdown {
+  background-color: white;
+  color: #222222;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e4453b;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+}
+
+/* ................Bottom navbar..............  */
+
+.bottomnavbar {
+  position: fixed;
+  bottom: 0;
+  width: 750px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 59px;
+  background-color: white;
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.05);
+}
+
+.activebottom,
+.nonactivebottom {
+  display: grid;
+  float: left;
+  color: #e4453b;
+  text-align: center;
+  padding: 14px;
+  justify-items: center;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+.nonactivebottom {
+  color: #000000;
+}
+.activebottom img,
+.nonactivebottom img {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .main,
+  .bottomnavbar {
+    width: 100%;
+  }
+  .activebottom span,
+  .nonactivebottom span {
+    display: none;
+  }
+  .main::-webkit-scrollbar {
+    display: none;
+  }
+}

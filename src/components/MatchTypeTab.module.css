@@ -1,0 +1,8 @@
+.btnSelected {
+  border-bottom: 2px solid #e4453b;
+  border-radius: 0.625rem 0.625rem 0rem 0rem;
+}
+
+.btn {
+  cursor: pointer;
+}

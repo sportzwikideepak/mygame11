@@ -1,0 +1,257 @@
+.topcontent {
+  position: sticky;
+  top: 0; /* Adjust this value as needed based on your header size or navbar, if any */
+  z-index: 1000; /* Ensures it stays on top of other content */
+  background-color: #ffffff;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin: 0 25px 20px 25px;
+  padding-top: 25px;
+}
+
+.backbutton {
+  /* color: #4a5568; */
+  border: none;
+  margin-right: 8px;
+  font-size: 24px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.searchbox {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -4px -4px 10px 0px rgba(0, 0, 0, 0.05);
+  /* margin-bottom: 16px; */
+  margin: 0 25px 16px 25px;
+}
+
+.searchicon {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+.input[type="checkbox"] {
+  background: #ffffff;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -4px -4px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.input[type="text"] {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.input[type="text"]::placeholder {
+  color: #a0aec0;
+}
+.datetext1 {
+  color: #222222;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 25px;
+}
+.buttons {
+  margin: 0 25px;
+}
+.buttons button {
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #ffffff;
+  color: #4a5568;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -4px -4px 10px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 8px;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.teams {
+  height: 45px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.teams h2 {
+  color: #000000;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  display: grid;
+  height: 100%;
+  margin-top: 14px;
+}
+.line {
+  background: #e4453b;
+  border-radius: 10px 10px 0px 0px;
+  width: 101px;
+  height: 2px;
+}
+
+.team {
+  margin: 0 25px;
+  height: 80px;
+  border-bottom: 1px solid #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 0;
+  margin: 0 25px;
+  justify-content: space-between;
+}
+
+.team img {
+  border-radius: 50%;
+  margin-right: 8px;
+  width: 35px;
+  height: 35px;
+}
+.teamtabs {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+.bottomcontent {
+  height: 75px;
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.05);
+}
+
+.actions {
+  position: fixed;
+  bottom: 0;
+  /* left: 0; */
+  width: 750px;
+  z-index: 1000;
+  display: flex;
+  background-color: #ffffff;
+  height: 75px;
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  padding: 0 25px;
+}
+
+.red,
+.blue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions button.red {
+  background-color: #e53e3e;
+  color: #ffffff;
+  border: none;
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.actions button.blue {
+  background-color: #3182ce;
+  color: #ffffff;
+  border: none;
+  height: 40px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.actions button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 0 15px 20px 15px;
+    padding-top: 20px;
+  }
+  .searchbox {
+    margin: 0 15px 16px 15px;
+  }
+  .datetext1,
+  .buttons,
+  .team {
+    margin: 0 15px;
+  }
+  .actions {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
+.results {
+  position: absolute;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+
+.resultItem {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.resultItem:nth-child(odd) {
+  background-color: rgba(229, 62, 62, 0.08);
+}
+
+.resultItem:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.resultItem:hover {
+  background-color: rgb(229, 62, 62);
+  color: #fff;
+}
+
+.noResults {
+  padding: 8px 16px;
+  color: #777;
+  text-align: center;
+}
+
+.teamcontent {
+  display: grid;
+}
+
+.datewise {
+  color: #858585;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+}

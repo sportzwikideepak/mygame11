@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Squad",
+    "iconUrl": "/static/Squad Svg.svg",
+    "href": "squads",
+    "alt": "squad",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "Stats Playground",
+    "iconUrl": "/static/Stats plaground.svg",
+    "href": "stats-playground",
+    "alt": "stats playground",
+    "subTitle": "All cricket stats at your fingertips",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "Cheat Sheet",
+    "iconUrl": "/static/Cheat Sheet.svg",
+    "href": "cheat-sheet",
+    "alt": "cheat sheet",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "Venue & pitch report",
+    "iconUrl": "/static/Venue & Pitch Report.svg",
+    "href": "venue-overview",
+    "alt": "venue and pitch report ic",
+    "subTitle": "",
+    "isSubTitleDynamic": true
+  },
+  {
+    "title": "Batting order, power play & death bowling",
+    "iconUrl": "/static/Batting order,powerplay.svg",
+    "href": "batting-order-powerplay",
+    "alt": "batting order, power play and death bowling ic",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "Team H2H",
+    "iconUrl": "/static/Team H2H.svg",
+    "href": "team-comparison",
+    "alt": "team head to head",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "All player overview",
+    "iconUrl": "/static/all Player.svg",
+    "href": "all-player-overview",
+    "alt": "all player overview",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "Bowler corner",
+    "iconUrl": "/static/all Player.svg",
+    "href": "bowler-corner",
+    "alt": "bowler corner",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  },
+  {
+    "title": "Team stats",
+    "iconUrl": "/static/Team Stats.svg",
+    "href": "team-stats",
+    "alt": "team stats",
+    "subTitle": "",
+    "isSubTitleDynamic": false
+  }
+]

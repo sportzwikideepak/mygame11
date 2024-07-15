@@ -1,0 +1,108 @@
+import React from "react";
+import OverviewNav from "@/components/match_overview/OverviewNav";
+import OverviewMatchCard from "@/components/match_overview/OverviewMatchCard";
+import MatchOverviewHead from "@/components/match_overview/MatchOverviewHead";
+import styles from "./fantasy.module.css";
+import OverviewFantasyStats from "@/components/match_overview/OverviewFantasyStats";
+const LOCAL_SW_API_BASE_URL = process.env.LOCAL_SW_API_BASE_URL;
+
+const entity_base_url_v2 = process.env.ENTITY_BASE_URL_V2;
+const entity_api_key = process.env.ENTITY_TOKEN;
+
+const fetchFantasyOverview = async (venue_id, team_id) => {
+  // console.log(
+  //   `${LOCAL_SW_API_BASE_URL}/venue/${venue_id}/team/${team_id}/match-details`,
+  //   "893h2iobuo0i8"
+  // );
+  try {
+    const res = await fetch(
+      `${LOCAL_SW_API_BASE_URL}/venue/${venue_id}/team/${team_id}/match-details`
+    );
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log("#8943ythg40h034");
+    return [];
+  }
+};
+
+const fetchMatchInfo = async (match_id) => {
+  try {
+    const res = await fetch(
+      `${entity_base_url_v2}/matches/${match_id}/info?token=${entity_api_key}`,
+      { next: { revalidate: 10 } }
+    );
+    const data = await res.json();
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+};
+
+const page = async ({ params }) => {
+  const match_id =
+    params["match-overview"].split("-")[
+      params["match-overview"].split("-").length - 2
+    ];
+
+  const team_id =
+    params["match-overview"].split("-")[
+      params["match-overview"].split("-").length - 1
+    ];
+
+  const data = await fetchMatchInfo(match_id);
+
+  const FantasyOverview = await fetchFantasyOverview(
+    data?.response?.venue?.venue_id,
+    team_id
+  );
+  //   console.log(FantasyOverview, "8394hnoe4h30h");
+  return (
+    <>
+      <div className={styles.page}>
+        <div className={styles.main}>
+          {/* ...........navbar........... */}
+          <MatchOverviewHead />
+          {/* ...........Time,date........... */}
+          <OverviewMatchCard
+            matchTitle={data?.response?.competition?.abbr}
+            status={data?.response?.status_note || data?.response?.status_str}
+            teamNameA={data?.response?.teama.short_name}
+            teamNameB={data?.response?.teamb.short_name}
+            logoTeamA={data?.response?.teama.logo_url}
+            logoTeamB={data?.response?.teamb.logo_url}
+            dateStart={data?.response?.date_start_ist}
+          />
+          {/* ...........Centered content........... */}
+          <OverviewNav
+            currentPath1={params["match-details"]}
+            currentPath2={params["match-overview"]}
+            currentTeam={"team-a"}
+            active={2}
+          />
+
+          {/* ...........Actual Fantasy Points........... */}
+          <div className={styles.tossrends}>
+            <h2 className={styles.tossrendstext}>Actual Fantasy Points :-</h2>
+            <p className={styles.venueinfo}>
+              Actual fantasy points earned by the player in the match
+            </p>
+          </div>
+          <div
+            style={{ marginBottom: "70px" }}
+            className={styles.infocontainer}
+          >
+            <OverviewFantasyStats
+              matchId={match_id}
+              fantasyPoints={FantasyOverview}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default page;

@@ -1,0 +1,400 @@
+.main::-webkit-scrollbar {
+  width: 7px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 25px;
+}
+.page {
+  background-color: #3e3e3e;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  background-color: #f8f8fb;
+  width: 750px;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+/* ...........navbar........... */
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #f8f8fb;
+}
+
+.navbar {
+  position: sticky;
+  top: 10;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 16px 25px;
+  border-bottom: 1px solid #f8f8fb;
+}
+
+.backbutton {
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.backbutton .arrow {
+  margin-right: 8px;
+}
+.arrow img {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  font-size: 14px;
+}
+.title span {
+  color: #858585;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ...........venue text........... */
+
+.venuecontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 25px 20px 25px;
+}
+.venuecontent img {
+  width: 23px;
+  height: 23px;
+}
+.venuecontent span {
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ...........Centered content........... */
+.centeredcontent {
+  /* position: sticky; */
+  top: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 16px; */
+  margin: 0 25px;
+}
+
+.buttongroup {
+  display: flex;
+  gap: 16px;
+  overflow: scroll;
+}
+.buttongroup::-webkit-scrollbar {
+  display: none;
+}
+
+.buttongroup {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.buttonred,
+.buttonwhite {
+  padding: 8px 25px;
+  font-size: 12px;
+  border-radius: 9999px;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -4px -4px 10px 0px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.buttonred {
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+}
+
+.buttonred:hover {
+  background-color: #dc2626;
+}
+
+.buttonwhite {
+  background-color: #ffffff;
+  color: #1f2937;
+  border: none;
+}
+
+.buttonwhite:hover {
+  background-color: #f3f4f6;
+}
+
+.button:focus {
+  outline: none;
+}
+
+/* ...........info box........... */
+.infobox {
+  margin: 25px 25px 20px 25px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 2px 2px 10px 1px rgba(90, 82, 128, 0.02),
+    -2px -2px 10px 0px rgba(0, 0, 0, 0.02);
+}
+
+.infobox p {
+  color: #858585;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+}
+/* ...........Balanced Pitch........... */
+.balancedpitch {
+  margin: 0 25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 1px rgba(90, 82, 128, 0.02),
+    -2px -2px 10px 0px rgba(0, 0, 0, 0.02);
+  padding: 20px 15px 10px 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pitchtext {
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.balancedpitch p {
+  color: #3c72ca;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+.image {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  width: 524px;
+  height: 163px;
+}
+.balanceimg {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.statistics {
+  margin-top: 16px;
+}
+
+.statitem {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  box-shadow: 2px 2px 10px 1px rgba(90, 82, 128, 0.02),
+    -2px -2px 10px 0px rgba(0, 0, 0, 0.02);
+  color: #858585;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.score {
+  color: #000000;
+  text-align: right;
+  font-family: "HindSiliguri-Bold", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: bold;
+}
+
+/* ...........Toss Trends........... */
+.tossrends {
+  margin: 20px 25px 0 25px;
+}
+.infocontainer {
+  margin: 10px 25px 20px 25px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 1px rgba(90, 82, 128, 0.02),
+    -2px -2px 10px 0px rgba(0, 0, 0, 0.02);
+}
+
+.tossrendstext {
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.venueinfo {
+  color: #3c72ca;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+.Decision {
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.Decision span {
+  color: #3c72ca;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+.statblock {
+  margin-bottom: 16px;
+}
+
+.statdetail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 9px;
+  color: #858585;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+}
+
+.progressbar {
+  background-color: #f0f0f0;
+  height: 6px;
+  border-radius: 9999px;
+}
+
+.progress {
+  background-color: #ef4444;
+  height: 6px;
+  border-radius: 9999px;
+}
+
+.percentage {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #000000;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+}
+.winchasing {
+  color: #000000;
+  text-align: right;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+}
+.battingpre {
+  margin: 10px 25px;
+}
+.statdetail b {
+  color: #000000;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+}
+.progress1 {
+  background-color: #ef4444;
+  height: 6px;
+  border-radius: 9999px;
+}
+.hint,
+.hint span {
+  color: #e4453b;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.hint span {
+  color: #737373;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 15px;
+  }
+  .venuecontent {
+    margin: 15px 15px 20px 15px;
+  }
+  .centeredcontent {
+    margin: 0 15px;
+  }
+  .infobox {
+    margin: 25px 15px 20px 15px;
+  }
+  .balancedpitch {
+    margin: 0 15px;
+  }
+
+  .statitem {
+    padding: 12px 15px;
+  }
+  .infocontainer {
+    margin: 10px 15px 20px 15px;
+    padding: 20px 15px;
+  }
+  .battingpre {
+    margin: 10px 15px;
+  }
+  .tossrends {
+    margin: 20px 15px 0 15px;
+  }
+}
+
+@media (max-width: 570px) {
+  .pitchimage {
+    width: 500px;
+    height: 80px;
+  }
+}

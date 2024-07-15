@@ -1,0 +1,58 @@
+{
+  "top_player_based_on": [
+    {
+      "name": "Total Fantasy Points",
+      "key": "TotalFantasyPoints"
+    },
+    {
+      "name": "Dream team appearance",
+      "key": "DreamTeamAppearances"
+    },
+    {
+      "name": "Wickets taken",
+      "key": "WicketsTaken"
+    },
+    {
+      "name": "Runs scored",
+      "key": "RunsScored"
+    },
+    {
+      "name": "Strike rate",
+      "key": "StrikeRate"
+    },
+    {
+      "name": "Economy rate",
+      "key": "EconomyRate"
+    },
+    {
+      "name": "Fielding points",
+      "key": "FieldingPoints"
+    },
+    {
+      "name": "Average fantasy points",
+      "key": "AverageFantasyPoints"
+    }
+  ],
+  "from": [
+    {
+      "name": "last 5 matches",
+      "key": "Last5Matches"
+    },
+    {
+      "name": "last 10 matches",
+      "key": "Last5Matches"
+    }
+  ],
+  "venue": [
+    {
+      "name": "All Venue (Selected By Default)",
+      "key": "AllVenue"
+    }
+  ],
+  "totalMatches": [
+    {
+      "name": "Last 5 (Selected by default)",
+      "key": "All5Matches"
+    }
+  ]
+}

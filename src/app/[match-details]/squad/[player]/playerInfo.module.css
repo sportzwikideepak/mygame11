@@ -1,0 +1,270 @@
+.Playerinfo {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 238, 237, 1) 0%,
+    rgba(255, 238, 237, 1) 100%
+  );
+  height: 177px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+  padding-top: 15px;
+}
+
+.Destination {
+  display: flex;
+  position: relative;
+  margin-right: 15px;
+  float: right;
+  background: #ffffff;
+  border-radius: 5px;
+  width: 64px;
+  height: 30px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+
+  /* float: right;    */
+  /* margin-top: 15px;
+margin-right: 15px; */
+  border: none;
+  cursor: pointer;
+  scroll-behavior: smooth;
+  padding: 0 5px;
+}
+
+.playerinformation {
+  margin: 30px 15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.playerimage {
+  width: 128.03px;
+  height: 130.13px;
+  transform-origin: 0 0;
+  /* transform: rotate(0.116deg) scale(1, 1); */
+  object-fit: cover;
+}
+.playertext {
+  display: grid;
+  align-items: center;
+  align-content: center;
+}
+.Desti {
+  color: #000000;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: flex-end;
+}
+.Desti1 {
+  color: #737373;
+  text-align: left;
+  font-size: 12px;
+  line-height: 21px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: flex-start;
+}
+.playerline {
+  height: 2px;
+  background-color: #fdfdfd;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.countary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.countary img {
+  width: 20px;
+  height: 20px;
+}
+.countary {
+  color: black;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.playerstyle {
+  display: flex;
+  background: #ffffff;
+  border-radius: 20px;
+  height: 38px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+  margin: 10px 15px;
+}
+
+.styleactive {
+  display: flex;
+  background: #ffffff;
+  border-color: #e4453b;
+  border: 0.2px solid #e4453b;
+  border-radius: 20px;
+  width: 100%;
+  height: 38px;
+  position: relative;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.styleactive span {
+  color: #e4453b;
+  font-size: 12px;
+  font-weight: 700;
+}
+.stylenonactive {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.Playermain {
+  display: grid;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+  padding: 10px 15px;
+}
+.recentmatch {
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: flex-start;
+  /* margin: 10px 15px 2px 15px; */
+}
+.recentmatchtitle {
+  color: #737373;
+  font-size: 12px;
+  font-weight: 600;
+}
+.MatchePrevious {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+  overflow: scroll;
+}
+.MatchePrevious::-webkit-scrollbar {
+  display: none;
+}
+
+.MatchePrevious {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.matchestab {
+  display: grid;
+  padding: 20px 40px;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 13.81px;
+  width: 108.75px;
+  height: 87px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+}
+.previousscore,
+.previoustream {
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+.previoustream {
+  color: #737373;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.playersstats {
+  margin-top: 25px;
+}
+.statstext {
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.playersstatscontent {
+  background: #ffffff;
+  border-radius: 13.81px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+.playercontentleft,
+.playercontentright {
+  color: #737373;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: flex-start;
+}
+.playercontentright {
+  color: #000000;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 700;
+}
+.statsline {
+  background-color: #ffeeed;
+  height: 1px;
+  margin: 0 20px;
+}
+
+.Teamstatstext {
+  color: #3c72ca;
+  text-align: left;
+  font-size: 12px;
+  line-height: 21px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .playerinformation {
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,674 @@
+.H2Hhead {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 238, 237, 1) 0%,
+    rgba(255, 238, 237, 1) 100%
+  );
+  height: 181px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+}
+.headcontent {
+  display: flex;
+  justify-content: space-between;
+  padding: 23px 15px 10px 15px;
+  align-items: center;
+}
+.headcontent img {
+  width: 101.5px;
+  height: 101.5px;
+}
+.headcontent span {
+  background-color: #e4453b;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.Teamtab {
+  display: flex;
+  background: #ffffff;
+  border-radius: 20px;
+  height: 38px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 1),
+    -5px -5px 25px 0px rgba(255, 238, 237, 1);
+  margin: 0 15px 0 15px;
+}
+.LeftTeam,
+.rightTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 0.2px solid transparent;
+  border-radius: 20px;
+  width: 100%;
+  height: 38px;
+  position: relative;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+  gap: 10px;
+}
+.LeftTeam img,
+.rightTeam img {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.LeftTeam span,
+.rightTeam span {
+  color: #000000;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.H2HMain {
+  background: #ffffff;
+  border-radius: 20px;
+  height: 100vh;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+.H2Hcontent {
+  background: #ffffff;
+  border-radius: 13.81px;
+  margin: 15px 15px 0 15px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+  padding: 15px;
+}
+.contenthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head1,
+.head3 {
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.head3 {
+  text-align: right;
+}
+.head2 {
+  color: #737373;
+  text-align: center;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contnetbottom {
+  width: 100%;
+  height: 5px;
+  background-color: #ffeeed;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* H2HPreviousMatch */
+.allseason {
+  margin-top: 20px;
+}
+.allseason span {
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 15px 15px 15px;
+}
+.Season {
+  background: #ffffff;
+  border-radius: 20px;
+  height: 152px;
+  position: relative;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+  margin: 15px;
+}
+.seasonD {
+  color: #3c72ca;
+  text-align: left;
+  font-size: 12px;
+  line-height: 21px;
+  font-weight: 600;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 2px 15px 15px 15px;
+}
+.line {
+  margin: 10px 15px 15px 15px;
+  /* width: 100%; */
+  height: 2px;
+  background-color: #ffeeed;
+}
+.SeasonMatch {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+  padding: 0 15px 0 15px;
+  margin-bottom: 15px;
+}
+.matchid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 20px;
+  width: -webkit-fill-available;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.5),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.5);
+  padding: 20px 8px;
+  color: #e4453b;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  width: calc(48% - 0px);
+}
+
+/* New code */
+
+.main::-webkit-scrollbar {
+  width: 7px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 25px;
+}
+.page {
+  background-color: #3e3e3e;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  background-color: #f8f8fb;
+  width: 750px;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+/* ...........navbar........... */
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #f8f8fb;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 16px 25px;
+  border-bottom: 1px solid #f8f8fb;
+}
+
+.backbutton {
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.backbutton .arrow {
+  margin-right: 8px;
+}
+.arrow img {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  font-size: 14px;
+}
+.title span {
+  color: #858585;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.placeholder {
+}
+
+/* ...........Notification...........  */
+.announcementcontent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 15px 25px 20px 25px;
+}
+.lines {
+  width: 100%;
+  background-color: #ffffff;
+  height: 1px;
+}
+.announcement {
+  text-align: center;
+  font-size: 14px;
+  color: #858585;
+  white-space: nowrap;
+  letter-spacing: 1.5px;
+}
+
+/* ...........Match Cards........... */
+
+.mathlive {
+  margin: 0 25px 20px 25px;
+}
+.Livematchtab {
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -4px -4px 10px 0px rgba(0, 0, 0, 0.05);
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+  margin-top: 12px;
+  padding: 15px 28px 6px 28px;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  align-items: center;
+}
+
+.livetext {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.matchdetails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.livetext,
+.datewise {
+  color: #4caf4f;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+.team,
+.livetext1,
+.datetext,
+.livetext2 {
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  color: #222222;
+  font-size: 13px;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+
+.livetext1 {
+  color: #e4453b;
+  font-size: 12px;
+}
+.Livepart {
+  width: 2px;
+  height: 12px;
+  transform: translate(-0.5px, 0px);
+  background-color: #f3f4f6;
+  border-radius: 20px;
+}
+.datetext {
+  color: #858585;
+}
+.whichmatch {
+  display: flex;
+  justify-content: center;
+  color: #222222;
+  font-size: 12px;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+/* ...........Overall Snapshot........... */
+.tossrends {
+  margin: 20px 25px 0 25px;
+}
+.infocontainer {
+  margin: 10px 25px 20px 25px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 1px rgba(90, 82, 128, 0.02),
+    -2px -2px 10px 0px rgba(0, 0, 0, 0.02);
+}
+
+.tossrendstext {
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.venueinfo {
+  color: #3c72ca;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+.statscontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 25px;
+}
+
+.statsrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statsbarcontainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  height: 36px;
+  border-radius: 9999px;
+
+  overflow: hidden;
+  padding: 0 15px;
+}
+
+.progressbar {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.yellowbar {
+  background: linear-gradient(
+    90deg,
+    rgba(247, 214, 64, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.bluebar {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(142, 173, 227, 1) 100%
+  );
+}
+
+.label {
+  position: absolute;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.leftlabel {
+  left: 15px;
+}
+
+.rightlabel {
+  right: 15px;
+}
+
+.labelcontainer {
+  width: 6rem;
+  text-align: center;
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ...........Table1........... */
+
+.head {
+  display: flex;
+  width: 100%;
+}
+.upper1,
+.upper2,
+.upper3 {
+  background-color: white;
+
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  border-right: 1px solid #eaecee;
+}
+.upper1 {
+  padding: 10px 347px;
+}
+.upper2 {
+  padding: 10px 215px;
+}
+.upper3 {
+  padding: 10px 216px;
+}
+.tablecontainer {
+  overflow-x: auto;
+  margin: 20px 25px;
+  border-radius: 20px;
+  border: 1px solid #eaecee;
+}
+.tablecontainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tablecontainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.customtable {
+  width: 100%;
+  text-align: left;
+  color: #718096;
+}
+
+.tablehead {
+  font-size: 0.75rem;
+  color: #4a5568;
+  background-color: #f8f8fb;
+}
+
+.tableheader {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-right: 1px solid #eaecee;
+  font-size: 14px;
+  font-weight: 600px;
+}
+
+.tablerow {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaecee;
+}
+
+.rowheader,
+.rowheader1 {
+  padding: 1rem;
+  min-width: 200px;
+  white-space: nowrap;
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+.tablecell {
+  padding: 5px 20px;
+  font-size: 15px;
+}
+
+/* ...........Time,date........... */
+
+.announcementcontent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 25px;
+  margin-bottom: 10px;
+}
+.announcement {
+  color: #858585;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.lines1 {
+  width: 100%;
+  background-color: #fff;
+  height: 1px;
+}
+
+/* ...........Match Cards........... */
+.livecenter {
+  text-decoration: none;
+}
+.mathlive {
+  margin: 0 25px 20px 25px;
+}
+.Livematchtab {
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -4px -4px 10px 0px rgba(0, 0, 0, 0.05);
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+  margin-top: 12px;
+  padding: 15px 28px 6px 28px;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  align-items: center;
+}
+
+.livetext {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.livetext,
+.datewise {
+  color: #4caf4f;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+.team,
+.livetext1,
+.datetext,
+.livetext2 {
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  color: #222222;
+  font-size: 13px;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+
+.livetext1 {
+  color: #e4453b;
+  font-size: 12px;
+}
+.Livepart {
+  width: 2px;
+  height: 12px;
+  transform: translate(-0.5px, 0px);
+  background-color: #f3f4f6;
+  border-radius: 20px;
+}
+.datetext {
+  color: #858585;
+}
+.whichmatch {
+  display: flex;
+  justify-content: center;
+  color: #222222;
+  font-size: 12px;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 15px;
+  }
+  .announcementcontent {
+    padding: 0 15px;
+  }
+  .mathlive {
+    margin: 0 15px 20px 15px;
+  }
+  .tossrends {
+    margin: 20px 15px 0 15px;
+  }
+  .statscontainer {
+    padding: 25px 15px;
+  }
+  .tablecontainer {
+    margin: 20px 15px;
+  }
+}

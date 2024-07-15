@@ -1,0 +1,389 @@
+.main::-webkit-scrollbar {
+  width: 7px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 25px;
+}
+.page {
+  background-color: #3e3e3e;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  background-color: #f8f8fb;
+  width: 750px;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+/* ...........navbar........... */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 16px 25px;
+  border-bottom: 1px solid #f8f8fb;
+}
+
+.backbutton {
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.backbutton .arrow {
+  margin-right: 8px;
+}
+.arrow img {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  color: black;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  font-size: 14px;
+}
+
+.placeholder {
+}
+
+/* ...........Button Container........... */
+
+.buttoncontainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.buttonwrapper {
+  flex: 1;
+  text-align: center;
+}
+
+.tabbutton {
+  padding: 16px 25px;
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tabbutton:hover {
+  color: #e4453b;
+}
+
+.active {
+  color: #e4453b;
+}
+.tabbutton.active .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  margin: 0 20px;
+  background-color: #ef4444;
+}
+
+.listcontainer {
+  margin-top: 24px;
+}
+
+/* ...........player left........... */
+
+.maincontent {
+  display: flex;
+  margin: 0 25px 70px 0;
+  /* mar */
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 20%;
+  /* margin-left: 25px; */
+  background-color: white;
+}
+
+.button {
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.05),
+    4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.button.red {
+  background-color: #ef4444;
+  color: white;
+  border: 0;
+  margin: 50px 20px 0 20px;
+}
+
+.button.border {
+  background-color: white;
+  color: #4b5563;
+  border: 2px solid #d1d5db;
+  border: 0;
+  margin: 0 20px;
+}
+
+.button.withicon {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.statlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 43px;
+}
+
+/* .statlist li {
+      white-space: nowrap;
+      padding: 14px 20px;
+      border-bottom: 1px dashed #e5e7eb; 
+      color: #000000;
+      text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+  } */
+
+.statlist li {
+  position: relative;
+  white-space: nowrap;
+  padding: 14px 20px;
+  border-bottom: 1px dashed #e5e7eb;
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.statlist li::after {
+  content: attr(title);
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.statlist li:hover::after {
+  visibility: visible;
+  opacity: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ...........Player Profile Card........... */
+
+.cardscroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  width: 80%;
+}
+.cardscroll::-webkit-scrollbar {
+  display: none;
+}
+
+.cardscroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.card {
+  max-width: 360px;
+  border-right: 1px dashed #e5e7eb;
+  /* overflow: hidden; */
+}
+
+.cardheader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.profileinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 139px;
+  height: 141px;
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.name,
+.name span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e4453b;
+  white-space: nowrap;
+}
+.name span {
+  color: #000000;
+}
+
+.salary {
+  color: #858585;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.closebutton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.exitcard {
+  position: relative;
+  top: 0;
+  left: 50%;
+  align-items: center;
+}
+
+.role {
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px;
+  box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.05),
+    4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.stats li {
+  padding: 14px 20px;
+  border-bottom: 1px dashed #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.color {
+  background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .maincontent {
+    /* margin: 0; */
+    margin: 0 0 70px 0;
+  }
+  .container {
+    width: 30%;
+  }
+  .cardscroll {
+    width: 70%;
+  }
+  .button.red {
+    margin: 50px 10px 0 10px;
+  }
+  .button.border {
+    margin: 0 10px;
+  }
+  .statlist li {
+    padding: 14px 10px;
+  }
+  .stats li {
+    padding: 14px 10px;
+  }
+}
+
+.fix {
+  width: 750px;
+  /* height: 60px; */
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 99999;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e4453b;
+  gap: 5px;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.fix span {
+  color: #737373;
+  font-weight: 500;
+  /* margin-left: 10px; */
+}
+
+.inj {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+@media (max-width: 750px) {
+  .fix {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+}

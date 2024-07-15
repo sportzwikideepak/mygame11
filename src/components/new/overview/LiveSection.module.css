@@ -1,0 +1,213 @@
+/* ......Live Section...... */
+.live1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f6fe;
+  padding-bottom: 15px;
+}
+
+.container {
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+}
+
+.liveMain {
+  display: flex;
+  flex-direction: row;
+  width: 1012px;
+  gap: 15px;
+}
+
+.card,
+.poll {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  font-size: 14px;
+  box-shadow: 4px 4px 10px 1px rgba(90, 82, 128, 0.05),
+    -2px -2px 5px 0px rgba(0, 0, 0, 0.02);
+}
+
+.header1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.live {
+  color: #ef4444;
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.league {
+  color: #626262;
+  display: inline-block;
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.matchDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.teamInfo {
+  display: flex;
+  align-items: center;
+}
+
+.teamIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.teamName {
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.scoreDetails {
+  text-align: right;
+}
+
+.overs {
+  color: #626262;
+}
+
+.score {
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.poll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 330px;
+  font-size: 14px;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.pollText {
+  font-weight: bold;
+  color: #001240;
+  margin-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  background-color: #f8faff;
+}
+
+.voteButton {
+  background-color: #f8faff;
+  color: #001240;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid #001240;
+  cursor: pointer;
+}
+
+.linksButton {
+  width: 1012px;
+  overflow: hidden;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 16px;
+  background-color: #fff;
+  padding: 7px 15px;
+  border-radius: 9999px;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.buttonContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.buttonContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.button {
+  background-color: #ffffff;
+  color: #001240;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background-color: #f8faff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: #dbeafe;
+}
+
+.firstButton {
+  background-color: #001240;
+  color: #ffffff;
+}
+
+@media (max-width: 1012px) {
+  .container {
+    padding: 15px 0;
+    width: 100%;
+  }
+
+  .liveMain {
+    width: 768px;
+  }
+
+  .linksButton {
+    width: 768px;
+  }
+}
+
+@media (max-width: 775px) {
+  .live1 {
+    align-items: start;
+  }
+
+  .liveMain {
+    display: grid;
+    margin: 0 15px;
+    width: 100%;
+  }
+
+  .poll {
+    max-width: 100%;
+  }
+
+  .linksButton {
+    width: 100%;
+    padding: 0 15px;
+  }
+}

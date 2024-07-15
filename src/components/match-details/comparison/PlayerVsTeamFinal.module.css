@@ -1,0 +1,265 @@
+.main::-webkit-scrollbar {
+  width: 7px;
+}
+
+.main::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 25px;
+}
+.page {
+  background-color: #3e3e3e;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  background-color: #f8f8fb;
+  width: 750px;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+/* ...........navbar........... */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #f8f8fb;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 16px 25px;
+  border-bottom: 1px solid #f8f8fb;
+}
+
+.backbutton {
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.backbutton .arrow {
+  margin-right: 8px;
+}
+.arrow img {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  color: black;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  font-size: 14px;
+}
+
+.placeholder {
+}
+
+/* ...........player left........... */
+
+.maincontent {
+  display: flex;
+  flex-direction: column;
+  /* margin: 0 25px; */
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 25px;
+  background-color: #ffffff;
+}
+
+.button {
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.05),
+    4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.button.red {
+  background-color: #ef4444;
+  color: white;
+  border: 0;
+}
+
+.button.border {
+  background-color: white;
+  color: #4b5563;
+  border: 2px solid #d1d5db;
+  border: 0;
+}
+.button.borders {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin-top: 10px;
+  color: #4b5563;
+  border: 2px solid #d1d5db;
+  border: 0;
+  width: 90%;
+  height: 34px;
+  box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.05),
+    4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.statlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 72px;
+}
+
+/* ...........Player Profile Card........... */
+
+.cardscroll {
+  display: flex;
+  flex-wrap: nowrap;
+  /* overflow: scroll; */
+  scroll-behavior: smooth;
+}
+
+.card {
+  width: 100%;
+  border-right: 1px dashed #e5e7eb;
+  border-left: 1px dashed #e5e7eb;
+  /* overflow: hidden; */
+}
+
+.cardheader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  flex-direction: column;
+}
+
+.profileinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 139px;
+  height: 141px;
+  border-radius: 50%;
+}
+
+.closebutton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.role {
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30px;
+  box-shadow: -4px -4px 10px 0px rgba(0, 0, 0, 0.05),
+    4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* margin-top: 15px; */
+}
+
+.color {
+  background-color: #ffffff;
+}
+
+/* ...........Table........... */
+.container1 {
+  max-width: 1024px;
+  margin: 0 auto;
+  margin: 0 25px;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.th,
+.td {
+  padding: 11px;
+  border-top: 2px dashed #f8f8fb;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.th {
+  font-weight: bold;
+}
+.tdleft {
+  padding: 8px;
+  color: #000000;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.table th {
+  border-top: none;
+  color: #e4453b;
+  font-size: 14px;
+  font-weight: 700;
+}
+.Outtype {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e4453b;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 15px;
+}
+
+@media (max-width: 768px) {
+  .maincontent {
+    margin: 0;
+  }
+  .button.red,
+  .button.border {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .container1 {
+    margin: 0 15px;
+  }
+  .cardheader {
+    padding: 15px;
+  }
+}

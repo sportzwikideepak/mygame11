@@ -1,0 +1,33 @@
+/* Ensure these styles are included or adjust as needed */
+.SquadMainTab {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 25px 0px rgba(255, 238, 237, 0.3),
+    -5px -5px 25px 0px rgba(255, 238, 237, 0.3);
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+.teamstab {
+  display: flex;
+  justify-content: space-around; /* Adjusted for simplicity */
+}
+
+.Teamtableftactive,
+.Teamtableftnonactive {
+  flex-grow: 1;
+  text-align: center;
+  line-height: 38px; /* Center text vertically */
+  cursor: pointer;
+}
+
+.Teamtableftactive {
+  background-color: #ffffff;
+  color: #e4453b; /* Highlight color */
+  border-bottom: 3px solid #e4453b; /* Underline effect for active tab */
+}
+
+.Teamtableftnonactive {
+  background-color: #ffffff;
+  color: #000; /* Default color */
+}
