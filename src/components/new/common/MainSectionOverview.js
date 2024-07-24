@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../../../app/[match-details]/matchDetails.module.css";
-import FantasyVideo from "./FantasyVideo";
 import MatchDetailsBox from "./MatchDetailsBox";
 import TeamComparisonBox from "../overview/TeamComparisonBox";
 import SuggestedPlayersBox from "../overview/SuggestedPlayersBox";
@@ -20,7 +19,6 @@ const MainSectionOverview = ({
     <>
       {/* .........fantasy video......... */}
       <div className={styles.mainContent}>
-        <FantasyVideo />
         <div className={styles.allContent}>
           <div className={styles.container1}>
             <MatchDetailsBox match_info={match_info} />

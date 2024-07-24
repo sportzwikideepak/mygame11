@@ -11,7 +11,6 @@ import menuItems from "../../../seeds/analyticsMenuItems.json";
 import HeadNav from "@/components/new/common/HeadNav";
 import LiveSection from "@/components/new/overview/LiveSection";
 import MainSectionOverview from "@/components/new/common/MainSectionOverview";
-import FantasyVideo from "@/components/new/common/FantasyVideo";
 import MatchDetailsBox from "@/components/new/common/MatchDetailsBox";
 import TeamComparisonBox from "@/components/new/overview/TeamComparisonBox";
 import SuggestedPlayersBox from "@/components/new/overview/SuggestedPlayersBox";
@@ -104,7 +103,6 @@ const page = async ({ params }) => {
         currentUrl={params["match-details"]}
       />
       <div className={styles.mainContent}>
-        <FantasyVideo />
         <div className={styles.allContent}>
           <div className={styles.container1}>
             <SuggestedPlayersBox topPlayers={topPlayers} />

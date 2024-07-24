@@ -1,0 +1,104 @@
+.matchesList {
+    width: 100%;
+  }
+  
+  .match {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #fff;
+    width: 90%; /* Ensure the match items are wider */
+    margin: 0 auto 10px; /* Center align the match items */
+  }
+  
+  .matchInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .teamLogo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .vs {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    margin: 0 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add some shadow for a creative effect */
+  }
+  
+  .matchTitle {
+    font-size: 22px;
+    font-weight: bold; /* Bold font for match titles */
+    color: black;
+  }
+  
+  .matchDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  @media (max-width: 1024px) {
+    /* Tablet */
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    .leftSection {
+      display: none; /* Hide the left section on tablets */
+    }
+    .rightSection {
+      width: 100%;
+      height: 100vh;
+      padding: 20px;
+      margin-left: 0; /* Reset margin for tablets */
+    }
+    .buttonContainer {
+      flex-direction: row;
+      position: static;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .matchesSection {
+      padding-top: 0; /* Remove padding for tablets */
+    }
+  }
+  
+  @media (max-width: 775px) {
+    /* Mobile */
+    .container {
+      flex-direction: column;
+      height: auto;
+    }
+    .leftSection {
+      display: none; /* Hide the left section on small screens */
+    }
+    .rightSection {
+      width: 100%;
+      height: 100vh;
+      padding: 20px;
+      margin-left: 0; /* Reset margin for small screens */
+    }
+    .buttonContainer {
+      flex-direction: row;
+      position: static;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .matchesSection {
+      padding-top: 0; /* Remove padding for small screens */
+    }
+  }
+  

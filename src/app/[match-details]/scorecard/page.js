@@ -4,7 +4,6 @@ import styles from "../matchDetails.module.css";
 import ScoreCard from "@/components/new/scorecard/ScoreCard";
 import HeadNav from "@/components/new/common/HeadNav";
 import LiveSection from "@/components/new/overview/LiveSection";
-import FantasyVideo from "@/components/new/common/FantasyVideo";
 import DreamTeamBox from "@/components/new/overview/DreamTeamBox";
 import PlayerStatsBox from "@/components/new/overview/PlayerStatsBox";
 import WeatherNew from "@/components/new/common/WeatherNew";
@@ -86,7 +85,6 @@ const page = async ({ params }) => {
         currentUrl={params["match-details"]}
       />
       <div className={styles.mainContent}>
-        <FantasyVideo />
         <div className={styles.allContent}>
           <div className={styles.container1}>
             {/* <SquadList playing_11={playing11} /> */}

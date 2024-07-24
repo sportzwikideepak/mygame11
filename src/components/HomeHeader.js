@@ -10,7 +10,7 @@ const HomeHeader = ({ active }) => {
       <div className={styles.header}>
         <div className={styles.headertop}>
           <Link href="/" className={styles.logo}>
-            <Image src="/static/logo.svg" alt="" height={30} width={100} />
+            {/* <Image src="/static/logo.svg" alt="" height={30} width={100} /> */}
           </Link>
           <div className={styles.socialmedia}>
             <div className={styles.tooltip}>

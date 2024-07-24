@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../matchDetails.module.css";
 import HeadNav from "@/components/new/common/HeadNav";
 import LiveSection from "@/components/new/overview/LiveSection";
-import FantasyVideo from "@/components/new/common/FantasyVideo";
 // import SquadList from "@/components/new/squads/SquadList";
 import DreamTeamBox from "@/components/new/overview/DreamTeamBox";
 import PlayerStatsBox from "@/components/new/overview/PlayerStatsBox";
@@ -86,7 +85,6 @@ const page = async ({ params }) => {
         currentUrl={params["match-details"]}
       />
       <div className={styles.mainContent}>
-        <FantasyVideo />
         <div className={styles.allContent}>
           <div className={styles.container1}>
             {/* <SquadList playing_11={playing11} /> */}

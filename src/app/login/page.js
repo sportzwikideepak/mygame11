@@ -10,7 +10,7 @@ const Page = () => {
         <div className={styles.cardcontainer}>
           <div className={styles.formcontainer}>
             <div className={styles.branding}>
-              <Image height={20} width={20} src="/static/logo.svg" alt="" />
+              {/* <Image height={20} width={20} src="/static/logo.svg" alt="" /> */}
             </div>
             <h2>Welcome to CricketAddictor</h2>
             <p className={styles.introtext}>

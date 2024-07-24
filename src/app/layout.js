@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
           {/* </div> */}
           {/* </div> */}
           {/* <BottomNav /> */}
-          <Footer />
+          {/* <Footer /> */}
         </StoreProvider>
       </body>
     </html>

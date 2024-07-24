@@ -1,148 +1,155 @@
-import React from "react";
-// import Carousel from "../Carousel";
-// import HomeHeader from "../HomeHeader";
-// import MatchDetailsCard from "../MatchDetailsCard";
-import styles from "../../app/home.module.css";
-// import NavMenu from "./NavMenu";
-// import { useAppSelector } from "@/lib/hooks";
-// import { filterMatchBySeries } from "@/utils/filterMatchBySeries";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import LiveCarousal from "../new/home/LiveCarousal";
-import VideoGallery from "../new/home/VideoGallery";
-import FantasyVideo from "../new/common/FantasyVideo";
+import MatchesList from "./MatchesList";
+import styles from "../../app/home.module.css";
 
-const HomeMain = ({ data, completed_matches }) => {
-  console.log(completed_matches,data,"safdjfafdfasjdfasfdhjfsajdfjsafdjfsajfdjasfdsjh")
+const HomeMain = ({ data, live_matches, completed_matches }) => {
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState("upcoming");
+  const [hydrated, setHydrated] = useState(false);
+  const [category, setCategory] = useState("all");
+  const [timeZone, setTimeZone] = useState("Asia/Kolkata");
+
+  useEffect(() => {
+    const type = searchParams.get("type");
+    if (type === "completed") {
+      setActiveTab("completed");
+    } else if (type === "live") {
+      setActiveTab("live");
+    } else {
+      setActiveTab("upcoming");
+    }
+    setHydrated(true); // Set hydrated to true after the component mounts
+  }, [searchParams]);
+
+  if (!hydrated) {
+    // Render a loading state or skeleton while waiting for hydration
+    return <div>Loading...</div>;
+  }
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const handleTimeZoneChange = (e) => {
+    setTimeZone(e.target.value);
+  };
+
+  const filterMatches = (matches) => {
+    if (category === "all") {
+      return matches;
+    }
+    return matches.filter((match) => match.competition.category === category);
+  };
+
+  const filteredMatches =
+    activeTab === "upcoming"
+      ? filterMatches(data)
+      : activeTab === "live"
+      ? filterMatches(live_matches)
+      : filterMatches(completed_matches);
+
+  const timeZones = [
+    "UTC",
+    "America/New_York",
+    "Europe/London",
+    "Asia/Kolkata",
+    "Australia/Sydney",
+    // Add more time zones as needed
+  ];
+
   return (
-    <>
-      <div>
-        <div className={styles.background}>
-          <div className={styles.Headcontent}>
-            <div className={styles.topbar}>
-              <div className={styles.leftsection}>
-                <div className={styles.iconbg}>
-                  <Image
-                    height={20}
-                    width={20}
-                    src="static/Company Logo.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className={styles.rightsection}>
-                <Image
-                  height={20}
-                  width={20}
-                  src="static/Language Icon.svg"
-                  alt="globe"
-                />
-                <Image
-                  height={20}
-                  width={20}
-                  src="static/Notification Icon.svg"
-                  alt="bell"
-                />
-                <Image
-                  height={20}
-                  width={20}
-                  src="static/Search Icon.svg"
-                  alt="search"
-                />
-                <Image
-                  height={20}
-                  width={20}
-                  src="static/Login Icon.svg"
-                  alt="user"
-                />
-              </div>
-            </div>
-            <div className={styles.buttons}>
-              <button className={`${styles.button} ${styles.active}`}>
-                All
-              </button>
-              <button className={styles.button}>Cricket</button>
-              <button className={styles.button}>Football</button>
-              <button className={styles.button}>Kabaddi</button>
-              <button className={styles.button}>WWE</button>
-              <button className={styles.button}>Hockey</button>
-              <button className={styles.button}>Basketball</button>
-            </div>
-            <div className={styles.content}>
-              <div className={styles.matchinfo}>
-                <p className={styles.league}>
-                  Cricket - Indian premier league 2024
-                </p>
-                <h1 className={styles.matchtitle}>
-                  CSK <span className={styles.versus}>vs</span> DC
-                </h1>
-                <button className={styles.livebutton}>
-                  <div className={styles.iconplay}>
-                    <Image
-                      height={20}
-                      width={20}
-                      src="static/Banner link icon.svg"
-                      alt="play"
-                      className={styles.playicon}
-                    />
-                  </div>
-                  <span>Live Score</span>
-                </button>
-                <p className={styles.schedule}>
-                  2/5
-                  <a href="#">Schedule → </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* ...........Live-Section........... */}
-        <div className={styles.live1}>
-          <LiveCarousal data={data} completed_matches={completed_matches} />
-        </div>
-        {/* .........Main-Content......... */}
-        <div className={styles.maincontent}>
-          <VideoGallery title="LIVE STREAMING TOURS (POPULAR)" />
-          <VideoGallery title="TRENDING SHORTS" />
-
-          <FantasyVideo />
-          <FantasyVideo />
-
-          <FantasyVideo />
+    <div className={styles.container}>
+      <div className={styles.leftSection}>
+        <div className={styles.logoContainer}>
+          <Image
+            height={500}
+            width={500}
+            src="/static/logo2.svg"
+            alt="logo"
+            priority
+          />
         </div>
       </div>
-
-      {/* Old code */}
-      {/* {currentMenuStatus === true ? (
-        <NavMenu />
-      ) : (
-        <div className={`${styles.container}`}>
-          <HomeHeader active="live" />
-          <div className={`${styles.mainContent}`}>
-            <Carousel />
-            <div className={styles.livetabs}>
-              {props?.data?.map((match) => (
-                <MatchDetailsCard
-                  key={match.match_id}
-                  status={match.status}
-                  startTime={match.timestamp_start}
-                  team_a_name={match.teama.short_name}
-                  team_b_name={match.teamb.short_name}
-                  team_a_logo={match.teama.logo_url}
-                  team_b_logo={match.teamb.logo_url}
-                  subtitle={match.subtitle}
-                  format_str={match.format_str}
-                  short_title={match.short_title}
-                  season={match.competition.season}
-                  status_str={match.status_str}
-                  match_id={match.match_id}
-                  showHeadTitle={true}
-                />
-              ))}
-            </div>
+      <div className={styles.rightSection}>
+        <div className={styles.sticky}>
+          <div className={styles.buttonContainer}>
+            <a
+              href="?type=upcoming"
+              className={`${styles.button} ${
+                activeTab === "upcoming" ? styles.active : ""
+              }`}
+            >
+              Upcoming
+            </a>
+            <a
+              href="?type=live"
+              className={`${styles.button} ${
+                activeTab === "live" ? styles.active : ""
+              }`}
+            >
+              Live
+            </a>
+            <a
+              href="?type=completed"
+              className={`${styles.button} ${
+                activeTab === "completed" ? styles.active : ""
+              }`}
+            >
+              Completed
+            </a>
           </div>
+          <div className={styles.filterContainer}>
+            <label htmlFor="categoryFilter" className={styles.filterLabel}>
+              Filter by Category:
+            </label>
+            <select
+              id="categoryFilter"
+              value={category}
+              onChange={handleCategoryChange}
+              className={styles.dropdown}
+            >
+              <option value="all">All</option>
+              <option value="domestic">Domestic</option>
+              <option value="international">International</option>
+              <option value="women">Women</option>
+            </select>
+          </div>
+          {activeTab === "upcoming" && (
+            <div className={styles.filterContainer}>
+              <label htmlFor="timeZoneFilter" className={styles.filterLabel}>
+                Select Time Zone:
+              </label>
+              <select
+                id="timeZoneFilter"
+                value={timeZone}
+                onChange={handleTimeZoneChange}
+                className={styles.dropdown}
+              >
+                {timeZones.map((tz) => (
+                  <option key={tz} value={tz}>
+                    {tz}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
-      )} */}
-    </>
+        <div className={styles.matchesSection}>
+          <MatchesList
+            title={`${
+              activeTab.charAt(0).toUpperCase() + activeTab.slice(1)
+            } Matches`}
+            matches={filteredMatches}
+            activeTab={activeTab}
+            timeZone={timeZone}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 

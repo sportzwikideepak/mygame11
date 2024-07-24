@@ -7,7 +7,6 @@ import SquadsTable from "@/components/match-details/SquadsTable";
 import SquadsListMain from "@/components/match-details/SquadsListMain";
 import HeadNav from "@/components/new/common/HeadNav";
 import LiveSection from "@/components/new/overview/LiveSection";
-import FantasyVideo from "@/components/new/common/FantasyVideo";
 import SuggestedPlayersBox from "@/components/new/overview/SuggestedPlayersBox";
 import MenuDataAnalytics from "@/components/new/data-analytics/MenuDataAnalytics";
 import DreamTeamBox from "@/components/new/overview/DreamTeamBox";
@@ -114,7 +113,6 @@ const page = async ({ params }) => {
         currentUrl={params["match-details"]}
       />
       <div className={styles.mainContent}>
-        <FantasyVideo />
         <div className={styles.allContent}>
           <div className={styles.container1}>
             <SquadList playing_11={playing11} />
