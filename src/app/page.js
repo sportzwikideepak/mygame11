@@ -147,9 +147,115 @@
 
 
 
-import React from "react";
-import { fetchData } from "@/hooks/fetchData";
+// import React from "react";
+// import { fetchData } from "@/hooks/fetchData";
+// import HomeMain from "@/components/Home/HomeMain";
+
+// const entity_base_url_v2 = process.env.ENTITY_BASE_URL_V2;
+// const entity_api_key = process.env.ENTITY_TOKEN;
+
+// const fetchSeriesMatches = async () => {
+//   const url1 = `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=1`;
+//   const url2 = `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=3`;
+//   const url3 = `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=2`;
+
+//   try {
+//     const [res1, res2, res3] = await Promise.all([
+//       fetch(url1, { next: { revalidate: 30 } }),
+//       fetch(url2, { next: { revalidate: 30 } }),
+//       fetch(url3, { next: { revalidate: 30 } }),
+//     ]);
+
+//     const [data1, data2, data3] = await Promise.all([res1.json(), res2.json(), res3.json()]);
+
+//     return {
+//       upcoming: data1?.response?.items ?? [],
+//       live: data2?.response?.items ?? [],
+//       completed: data3?.response?.items ?? []
+//     };
+//   } catch (err) {
+//     console.log(err, "#9hygu4o3hi8");
+//     return { upcoming: [], live: [], completed: [] };
+//   }
+// };
+
+
+// const page = async () => {
+//   const seriesData = await fetchSeriesMatches();
+
+//   return (
+//     <>
+//       <HomeMain
+//         data={seriesData.upcoming}
+//         live_matches={seriesData.live}
+//         completed_matches={seriesData.completed}
+//       />
+//     </>
+//   );
+// };
+
+// export default page;
+
+
+
+
+// import React, { Suspense } from "react";
+// import HomeMain from "@/components/Home/HomeMain";
+// import { fetchData } from "@/hooks/fetchData";
+
+// const entity_base_url_v2 = process.env.ENTITY_BASE_URL_V2;
+// const entity_api_key = process.env.ENTITY_TOKEN;
+
+// const fetchSeriesMatches = async () => {
+//   const url1 = `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=1`;
+//   const url2 = `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=3`;
+//   const url3 = `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=2`;
+
+//   try {
+//     const [res1, res2, res3] = await Promise.all([
+//       fetch(url1, { next: { revalidate: 30 } }),
+//       fetch(url2, { next: { revalidate: 30 } }),
+//       fetch(url3, { next: { revalidate: 30 } }),
+//     ]);
+
+//     const [data1, data2, data3] = await Promise.all([res1.json(), res2.json(), res3.json()]);
+
+//     return {
+//       upcoming: data1?.response?.items ?? [],
+//       live: data2?.response?.items ?? [],
+//       completed: data3?.response?.items ?? []
+//     };
+//   } catch (err) {
+//     console.log(err, "#9hygu4o3hi8");
+//     return { upcoming: [], live: [], completed: [] };
+//   }
+// };
+
+// const Page = async () => {
+//   const seriesData = await fetchSeriesMatches();
+//   const dataStatus2 = await fetchData(
+//     `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=2`,
+//     3000
+//   );
+
+//   return (
+//     <Suspense fallback={<div>Loading...</div>}>
+//       <HomeMain
+//         data={seriesData.upcoming}
+//         live_matches={seriesData.live}
+//         completed_matches={seriesData.completed}
+//       />
+//     </Suspense>
+//   );
+// };
+
+// export default Page;
+
+
+
+import React, { Suspense } from "react";
 import HomeMain from "@/components/Home/HomeMain";
+import { fetchData } from "@/hooks/fetchData";
 
 const entity_base_url_v2 = process.env.ENTITY_BASE_URL_V2;
 const entity_api_key = process.env.ENTITY_TOKEN;
@@ -174,22 +280,27 @@ const fetchSeriesMatches = async () => {
       completed: data3?.response?.items ?? []
     };
   } catch (err) {
+    console.log(err, "#9hygu4o3hi8");
     return { upcoming: [], live: [], completed: [] };
   }
 };
 
-const page = async () => {
+const Page = async () => {
   const seriesData = await fetchSeriesMatches();
+  const dataStatus2 = await fetchData(
+    `${entity_base_url_v2}/matches/?token=${entity_api_key}&per_page=80&status=2`,
+    3000
+  );
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <HomeMain
         data={seriesData.upcoming}
         live_matches={seriesData.live}
         completed_matches={seriesData.completed}
       />
-    </>
+    </Suspense>
   );
 };
 
-export default page;
+export default Page;
