@@ -14,9 +14,9 @@ const BattingFirst = ({ venueTrends }) => {
         </div>
 
         <div className="bg-light-blue p-4 rounded-lg">
-          <h4 className="text-primary text-sm font-bold mb-4">
+          {/* <h4 className="text-primary text-sm font-bold mb-4">
             Decision after winning the toss
-          </h4>
+          </h4> */}
           <div className="">
             <div className="mb-3">
               <h6 className="text-primary text-sm font-bold">

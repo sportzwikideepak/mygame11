@@ -59,21 +59,24 @@ const fetchAllMatchInfos = async (matchIds) => {
   return results;
 };
 
-const getTopPlayers = async (venue_id) => {
+const getTopPlayers = async (venue_id, teamIdA, teamIdB) => {
+  console.log(venue_id,teamIdA,teamIdB,"326431342")
   try {
     const res = await fetch(
-      `${LOCAL_SW_API_BASE_URL}/venue/${venue_id}/top-players`,
+      `${LOCAL_SW_API_BASE_URL}/venue/${venue_id}/top-players?teamIdA=${teamIdA}&teamIdB=${teamIdB}`,
       {
         next: { revalidate: 300 },
       }
     );
     const data = await res.json();
+    console.log(data,"64324")
     return data;
   } catch (err) {
-    console.log(err, "error occurred while fetching venue data #8h403np0vhn");
+    console.log(err, "error occurred while fetching top players data #8h403np0vhn");
     return [];
   }
 };
+
 
 const fetchVenueDetails = async (venue_id) => {
   try {
@@ -115,7 +118,12 @@ const page = async ({ params }) => {
 
   const venueData = await fetchVenueDetails(venue_id);
 
-  const venueTopPlayers = await getTopPlayers(venue_id);
+
+  const teamIdA = matchDetails?.response?.teama?.team_id;
+  const teamIdB = matchDetails?.response?.teamb?.team_id;
+
+  const venueTopPlayers =  await getTopPlayers(venue_id, teamIdA, teamIdB);
+  console.log(venueTopPlayers,"venuetoplayers")
 
   const matchIds = venueTopPlayers?.map((match) => match?.match_id);
 

@@ -20,6 +20,7 @@ import BattingFirst from "@/components/new/venue-overview/BattingFirst";
 import PreviousStats from "@/components/new/venue-overview/PreviousStats";
 import FrequentCVC from "@/components/new/venue-overview/FrequentCVC";
 import PopPlayerVenue from "@/components/new/venue-overview/PopPlayerVenue";
+
 const LOCAL_SW_API_BASE_URL = process.env.LOCAL_SW_API_BASE_URL;
 const entity_api_key = process.env.ENTITY_TOKEN;
 const entity_base_url_v2 = process.env.ENTITY_BASE_URL_V2;
@@ -63,6 +64,7 @@ const teamPlayerDtPPM = async (teamIdA, teamIdB) => {
 };
 
 const fetchFrequentCandVC = async (venue_id, teamIdA, teamIdB) => {
+  console.log(venue_id, teamIdA, teamIdB, "12345678");
   try {
     const res = await fetch(
       `${LOCAL_SW_API_BASE_URL}/frequent-leaders/venue/${venue_id}/teams/${teamIdA}/${teamIdB}`,
@@ -104,10 +106,10 @@ const fetchMatchDetails = async (match_id) => {
   return data;
 };
 
-const fetchTossTrends = async (venue_id) => {
+const fetchTossTrends = async (venue_id, teamIdA, teamIdB) => {
   try {
     const res = await fetch(
-      `${LOCAL_SW_API_BASE_URL}/venue/${venue_id}/stats`,
+      `${LOCAL_SW_API_BASE_URL}/venue/${venue_id}/stats?teamIdA=${teamIdA}&teamIdB=${teamIdB}`,
       {
         next: { revalidate: 300 },
       }
@@ -145,38 +147,25 @@ const page = async ({ params }) => {
   const currentPath = params["match-details"];
 
   const matchDetails = await fetchMatchDetails(match_id);
-  // console.log(matchDetails?.response?.teama?.short_name, "43ih403ih0n43hi4n0g");
 
   const venue_id = matchDetails?.response?.venue?.venue_id;
-  // console.log(venue_id,'7duifvy9fy9fu79')
+  const teamIdA = matchDetails?.response?.teama?.team_id;
+  const teamIdB = matchDetails?.response?.teamb?.team_id;
+
+  console.log('Team A ID:', teamIdA);
+  console.log('Team B ID:', teamIdB);
+
   const venueData = await fetchVenueDetails(venue_id);
-  const venueTrends = await fetchTossTrends(venue_id);
+  const venueTrends = await fetchTossTrends(venue_id, teamIdA, teamIdB);
 
-  const venueTopPlayers = await getTopPlayers(
-    venue_id,
-    matchDetails?.response?.teama?.team_id,
-    matchDetails?.response?.teamb?.team_id
-  );
+  const venueTopPlayers = await getTopPlayers(venue_id, teamIdA, teamIdB);
 
-  const frquentCandVc = await fetchFrequentCandVC(
-    venue_id,
-    matchDetails?.response?.teama?.team_id,
-    matchDetails?.response?.teamb?.team_id
-  );
+  const frquentCandVc = await fetchFrequentCandVC(venue_id, teamIdA, teamIdB);
 
-  // console.log(frquentCandVc, "9j3hn0f89hgbopnwpp");
+  const topPlayers = await fetchTopPlayers(teamIdA, teamIdB);
 
-  const topPlayers = await fetchTopPlayers(
-    matchDetails?.response?.teama?.team_id,
-    matchDetails?.response?.teamb?.team_id
-  );
+  const playerPPMDI = await teamPlayerDtPPM(teamIdA, teamIdB);
 
-  const playerPPMDI = await teamPlayerDtPPM(
-    matchDetails?.response?.teama?.team_id,
-    matchDetails?.response?.teamb?.team_id
-  );
-
-  // console.log(venueTopPlayers, "9j3hn0f89hgbopnwpp");
   return (
     <>
       <HeadNav title={matchDetails?.response?.title} prevUrl={`/`} />
@@ -208,35 +197,6 @@ const page = async ({ params }) => {
         </div>
         <PlayerVsPlayer top_players={topPlayers} />
       </div>
-      {/* Old code */}
-      {/* <div className={styles.page}>
-        <div style={{ paddingBottom: "60px" }} className={styles.main}>
-          <VenueHead
-            match_short_title={matchDetails?.response?.short_title}
-            match_venue={matchDetails?.response?.venue?.name}
-            currentPath={currentPath}
-          />
-
-          <VenueNav
-            currentPath={currentPath}
-            activeTab={0}
-            teamNameA={matchDetails?.response?.teama?.short_name}
-            teamNameB={matchDetails?.response?.teamb?.short_name}
-          />
-
-          <VenueInfoBox />
-
-          <VenuePitchDetails venueData={venueData} />
-
-          <VenueTossTrend venueTrends={venueTrends} />
-
-          <VenueBattingFirstPreferred venueTrends={venueTrends} />
-
-          <VenueTopPlayers venueTopPlayers={venueTopPlayers} />
-
-          <VenueCapVcHistory frquentCandVc={frquentCandVc} />
-        </div>
-      </div> */}
     </>
   );
 };

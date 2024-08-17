@@ -19,6 +19,7 @@ import FrequentCVC from "@/components/new/venue-overview/this-team/FrequentCVC";
 import ThisRecentMatches from "@/components/new/venue-overview/this-team/ThisRecentMatches";
 
 const fetchTopPlayers = async (teamIdA, teamIdB) => {
+  console.log(teamIdA,teamIdB,"1234567890123456789123456789012345678901234567890")
   try {
     const res = await fetch(
       `${LOCAL_SW_API_BASE_URL}/new/top-players-stats/${teamIdA}/${teamIdB}`,
@@ -32,7 +33,6 @@ const fetchTopPlayers = async (teamIdA, teamIdB) => {
     }
     return [];
   } catch (err) {
-    console.log(err, "#493h0g4ubo");
     return [];
   }
 };

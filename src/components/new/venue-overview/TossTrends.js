@@ -71,8 +71,8 @@ const TossTrends = ({ venueTrends }) => {
                     </span>
                     <span className="text-black text-xs font-semibold block">
                       {
-                        venueTrends.wins_without_toss_consideration
-                          ?.batting_first
+                        venueTrends
+                          ?.wins_batting_first
                       }
                     </span>
                   </div>
@@ -99,7 +99,7 @@ const TossTrends = ({ venueTrends }) => {
                       Win chasing
                     </span>
                     <span className="text-black text-xs font-semibold block">
-                      {venueTrends.wins_without_toss_consideration?.chasing}
+                      {venueTrends?.wins_chasing}
                     </span>
                   </div>
                   <div className="bg-white rounded-full flex">

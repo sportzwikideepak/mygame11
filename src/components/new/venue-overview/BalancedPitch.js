@@ -8,7 +8,7 @@ const BalancedPitch = ({ venueData }) => {
         <div className="mb-4">
           <h4 className="text-primary text-sm font-bold">Balanced Pitch</h4>
           <p className="text-gray-500 text-xs">
-            Make even selection of batsman and bowlers
+            Make even selection of batsman and bowlers dsbskfdsj
           </p>
         </div>
 

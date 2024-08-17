@@ -83,7 +83,7 @@ const PrevMatchReport = ({
         </div>
 
         <h4 className="text-primary text-sm mb-2 font-bold">
-          Decision after winning the toss
+          Total Fanatasy Points 
         </h4>
         <div className="bg-primary relative rounded-lg p-4 isolate">
           <Image
