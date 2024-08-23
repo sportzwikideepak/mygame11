@@ -122,10 +122,10 @@ const fetchTossTrends = async (venue_id, teamIdA, teamIdB) => {
   }
 };
 
-const fetchVenueDetails = async (venue_id) => {
+const fetchVenueDetails = async (venue_id, teamIdA, teamIdB) => {
   try {
     const res = await fetch(
-      `${LOCAL_SW_API_BASE_URL}/stats/venue/${venue_id}`,
+      `${LOCAL_SW_API_BASE_URL}/stats/venue/${venue_id}/${teamIdA}/${teamIdB}`,
       {
         next: { revalidate: 300 },
       }
@@ -137,6 +137,7 @@ const fetchVenueDetails = async (venue_id) => {
     return [];
   }
 };
+
 
 const page = async ({ params }) => {
   const match_id =
@@ -155,7 +156,7 @@ const page = async ({ params }) => {
   console.log('Team A ID:', teamIdA);
   console.log('Team B ID:', teamIdB);
 
-  const venueData = await fetchVenueDetails(venue_id);
+  const venueData = await fetchVenueDetails(venue_id,teamIdA,teamIdB);
   const venueTrends = await fetchTossTrends(venue_id, teamIdA, teamIdB);
 
   const venueTopPlayers = await getTopPlayers(venue_id, teamIdA, teamIdB);

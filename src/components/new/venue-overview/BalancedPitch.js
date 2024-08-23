@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const BalancedPitch = ({ venueData }) => {
+  console.log(venueData,"453624543572473723723754737")
   return (
     <>
       <div className="bg-white shadow-sm p-4 border border-gray-200 rounded-lg">
