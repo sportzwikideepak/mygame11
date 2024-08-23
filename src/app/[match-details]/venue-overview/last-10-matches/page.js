@@ -110,17 +110,20 @@ const page = async ({ params }) => {
       params["match-details"].split("-").length - 1
     ];
 
+
+    
+  const teamIdA = matchDetails?.response?.teama?.team_id;
+  const teamIdB = matchDetails?.response?.teamb?.team_id;
+
   const currentPath = params["match-details"];
 
   const matchDetails = await fetchMatchDetails(match_id);
 
   const venue_id = matchDetails?.response?.venue?.venue_id;
 
-  const venueData = await fetchVenueDetails(venue_id);
+  const venueData = await fetchVenueDetails(venue_id,teamIdA,teamIdB);
 
 
-  const teamIdA = matchDetails?.response?.teama?.team_id;
-  const teamIdB = matchDetails?.response?.teamb?.team_id;
 
   const venueTopPlayers =  await getTopPlayers(venue_id, teamIdA, teamIdB);
   console.log(venueTopPlayers,"venuetoplayers")

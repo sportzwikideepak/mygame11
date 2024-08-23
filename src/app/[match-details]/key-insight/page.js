@@ -62,10 +62,10 @@ const fetchTossTrends = async (venue_id) => {
   }
 };
 
-const fetchVenueDetails = async (venue_id) => {
+const fetchVenueDetails = async (venue_id, teamIdA, teamIdB) => {
   try {
     const res = await fetch(
-      `${LOCAL_SW_API_BASE_URL}/stats/venue/${venue_id}`,
+      `${LOCAL_SW_API_BASE_URL}/stats/venue/${venue_id}/${teamIdA}/${teamIdB}`,
       {
         next: { revalidate: 300 },
       }
@@ -77,6 +77,7 @@ const fetchVenueDetails = async (venue_id) => {
     return [];
   }
 };
+
 
 const fetchTopPowerPlayBatter = async (teamIdA, teamIdB) => {
   try {
