@@ -2,7 +2,18 @@ import Image from "next/image";
 import React from "react";
 
 const BalancedPitch = ({ venueData }) => {
-  console.log(venueData,"453624543572473723723754737")
+  if (!venueData || venueData.match_count === 0) {
+    return (
+      <div className="bg-white shadow-sm p-4 border border-gray-200 rounded-lg">
+        <div className="mb-4">
+          <h4 className="text-primary text-sm font-bold">Balanced Pitch</h4>
+          <p className="text-gray-500 text-xs">
+            No match at this venue for Team A and Team B exists.
+          </p>
+        </div>
+      </div>
+    );
+  }  
   return (
     <>
       <div className="bg-white shadow-sm p-4 border border-gray-200 rounded-lg">

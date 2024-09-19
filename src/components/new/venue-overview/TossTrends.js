@@ -1,6 +1,19 @@
 import React from "react";
 
 const TossTrends = ({ venueTrends }) => {
+  if (!venueTrends || venueTrends.total_matches === 0) {
+    return (
+      <div className="bg-white shadow-sm p-4 border border-gray-200 rounded-lg">
+        <div className="mb-4">
+          <p className="text-gray-500 text-xs">
+          <h4 className="text-primary text-sm font-bold">Toss Trends</h4>
+          <p className="text-gray-500 text-xs">As this venue</p>
+            No match at this venue for Team A and Team B exists.
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div className="bg-white shadow-sm p-4 border border-gray-200 rounded-lg">

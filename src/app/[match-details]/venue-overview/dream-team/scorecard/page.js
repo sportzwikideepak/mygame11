@@ -128,6 +128,7 @@ const page = async ({ params }) => {
   );
 
   const scorecard = await fetchMatchScoreCard(match_id);
+  console.log(scorecard,"matchescorecard")
 
   return (
     <>

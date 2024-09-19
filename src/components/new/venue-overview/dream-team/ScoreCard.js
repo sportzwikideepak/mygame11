@@ -5,7 +5,17 @@ import React, { useState } from "react";
 const ScoreCard = ({ scorecardData }) => {
   const [accordion1Open, setAccordion1Open] = useState(true);
   const [accordion2Open, setAccordion2Open] = useState(false);
+console.log(scorecardData,"scorecardadat")
+if (!scorecardData || !scorecardData.response || !scorecardData.response.innings || scorecardData.response.innings.length === 0) {
 
+    return (
+      <div className="flex items-center justify-center py-10">
+        <p className="text-gray-600 text-lg font-semibold">
+          This is an upcoming match. Scorecard will be available after the match starts.
+        </p>
+      </div>
+    );
+  }
   const renderBatsmen = (batsmen) => (
     <tbody className="divide-y divide-gray-200">
       {batsmen.map((batsman, index) => (
