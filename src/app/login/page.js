@@ -38,7 +38,7 @@ const Login = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch(`http://localhost:8000/sendOtp`, {
+      const response = await fetch(`https://hammerhead-app-jkdit.ondigitalocean.app/sendOtp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const Login = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch(`http://localhost:8000/verifyOtp`, {
+      const response = await fetch(`https://hammerhead-app-jkdit.ondigitalocean.app/verifyOtp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
