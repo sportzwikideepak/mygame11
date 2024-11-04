@@ -38,7 +38,7 @@ const Login = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch(`${LOCAL_SW_API_BASE_URL}/sendOtp`, {
+      const response = await fetch(`https://hammerhead-app-jkdit.ondigitalocean.app/sendOtp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const Login = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch(`${LOCAL_SW_API_BASE_URL}/verifyOtp`, {
+      const response = await fetch(`https://hammerhead-app-jkdit.ondigitalocean.app/verifyOtp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
