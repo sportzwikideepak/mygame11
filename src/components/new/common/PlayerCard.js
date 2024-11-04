@@ -45,11 +45,11 @@ const PlayerCard = ({ player_data, selected = true, align, handler }) => {
                   <p>{player_data?.name}</p>
                   <span>{player_data?.role}</span>
                 </div>
-                <img
+                {/* <img
                   src="/static/Profile.svg"
                   alt="Player"
                   className={styles.playerphoto1}
-                />
+                /> */}
               </li>
             </a>
           </ul>
@@ -59,13 +59,13 @@ const PlayerCard = ({ player_data, selected = true, align, handler }) => {
           <ul className={styles.players}>
             <a href>
               <li>
-                <Image
+                {/* <Image
                   height={20}
                   width={20}
                   src="/static/Profile.svg"
                   alt="Player"
                   className={styles.playerphoto}
-                />
+                /> */}
                 <div className={styles.details}>
                   <p>{player_data?.name}</p>
                   <span>{player_data?.role}</span>

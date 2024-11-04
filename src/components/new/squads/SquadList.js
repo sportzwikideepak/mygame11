@@ -58,13 +58,13 @@ const SquadList = ({ playing_11 }) => {
                 <>
                   <a href>
                     <li>
-                      <Image
+                      {/* <Image
                         height={20}
                         width={20}
                         src="/static/Profile.svg"
                         alt="Player"
                         className={styles.playerPhoto}
-                      />
+                      /> */}
                       <div className={styles.details}>
                         <p>{player?.name}</p>
                         <span>{player?.role?.toUpperCase()}</span>
@@ -88,13 +88,13 @@ const SquadList = ({ playing_11 }) => {
                         </p>
                         <span>{player?.role?.toUpperCase()}</span>
                       </div>
-                      <Image
+                      {/* <Image
                         height={20}
                         width={20}
                         src="/static/Profile.svg"
                         alt="Player"
                         className={styles.playerPhoto1}
-                      />
+                      /> */}
                     </li>
                   </a>
                 </>

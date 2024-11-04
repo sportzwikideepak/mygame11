@@ -10,7 +10,7 @@ const KeyInsightMain = ({
   venueTopPlayers,
   battingOrder,
 }) => {
-  console.log(topPlayerXFactor, "4tgrbf3hioiohn4hnio4t");
+  console.log(venueTrends, "4tgrbf3hioiohn4hnio4t");
 
   const teams = [...new Set(battingOrder.map((player) => player.team))];
 
@@ -25,7 +25,7 @@ const KeyInsightMain = ({
     <>
       <div className="flex flex-col gap-4">
         <div className="bg-white shadow-sm border border-gray-200 rounded-lg">
-          <div className="py-3 px-4 flex items-center gap-[10px] border-b border-gray-200">
+          {/* <div className="py-3 px-4 flex items-center gap-[10px] border-b border-gray-200">
             <div className="icon">
               <Image
                 height={20}
@@ -35,8 +35,8 @@ const KeyInsightMain = ({
               />
             </div>
             <h4 className="text-title-gray font-bold">WIN PROBABILITY</h4>
-          </div>
-          <div className="p-4">
+          </div> */}
+          {/* <div className="p-4">
             <div className="bg-light-blue rounded-lg p-4">
               <div className="flex justify-between items-center mb-6">
                 <div className="text-sm font-bold text-white px-3 py-1 rounded-lg bg-yellow-400">
@@ -69,10 +69,10 @@ const KeyInsightMain = ({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
-        <div className="bg-white shadow-sm border border-gray-200 rounded-lg">
+        {/* <div className="bg-white shadow-sm border border-gray-200 rounded-lg">
           <div className="py-3 px-4 flex items-center gap-[10px] border-b border-gray-200">
             <div className="icon">
               <Image
@@ -105,9 +105,9 @@ const KeyInsightMain = ({
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="bg-white shadow-sm border border-gray-200 rounded-lg">
+        {/* <div className="bg-white shadow-sm border border-gray-200 rounded-lg">
           <div className="py-3 px-4 flex items-center gap-[10px] border-b border-gray-200">
             <div className="icon">
               <Image
@@ -241,10 +241,8 @@ const KeyInsightMain = ({
                           Choose to bat first
                         </span>
                         <span className="text-black text-xs font-semibold block">
-                          {
-                            venueTrends.wins_without_toss_consideration
-                              .batting_first
-                          }
+                          {venueTrends?.wins_without_toss_consideration
+                            ?.batting_first || 0}
                         </span>
                       </div>
                       <div className="bg-white rounded-full flex">
@@ -252,9 +250,9 @@ const KeyInsightMain = ({
                           className="bg-brand-red h-0.5"
                           style={{
                             width: `${
-                              (venueTrends.wins_without_toss_consideration
-                                .batting_first /
-                                venueTrends.total_matches) *
+                              ((venueTrends?.wins_without_toss_consideration
+                                ?.batting_first || 0) /
+                                (venueTrends?.total_matches || 1)) *
                               100
                             }%`,
                           }}
@@ -267,7 +265,8 @@ const KeyInsightMain = ({
                           Choose to chase
                         </span>
                         <span className="text-black text-xs font-semibold block">
-                          {venueTrends.wins_without_toss_consideration.chasing}
+                          {venueTrends?.wins_without_toss_consideration
+                            ?.chasing || 0}
                         </span>
                       </div>
                       <div className="bg-white rounded-full flex">
@@ -275,9 +274,9 @@ const KeyInsightMain = ({
                           className="bg-brand-red h-0.5"
                           style={{
                             width: `${
-                              (venueTrends.wins_without_toss_consideration
-                                .chasing /
-                                venueTrends.total_matches) *
+                              ((venueTrends?.wins_without_toss_consideration
+                                ?.chasing || 0) /
+                                (venueTrends?.total_matches || 1)) *
                               100
                             }%`,
                           }}
@@ -289,7 +288,7 @@ const KeyInsightMain = ({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* <div className="bg-white shadow-sm border border-gray-200 rounded-lg">
           <div className="py-3 px-4 flex items-center gap-[10px] border-b border-gray-200">

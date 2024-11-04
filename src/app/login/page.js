@@ -12,16 +12,10 @@ const Login = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [timer, setTimer] = useState(0); // Timer in seconds (starts at 0)
-  const [resendAttempts, setResendAttempts] = useState(0); // Track resend attempts
   const [canResend, setCanResend] = useState(false); // Track when to show Resend OTP button
+  const [showDidNotGetOtp, setShowDidNotGetOtp] = useState(true); // Track visibility of the "Didn't get OTP?" button
 
-  // Initialize resend count from localStorage on component mount
-  useEffect(() => {
-    const attempts = localStorage.getItem('resendAttempts');
-    if (attempts) {
-      setResendAttempts(Number(attempts));
-    }
-  }, []);
+  const LOCAL_SW_API_BASE_URL = process.env.LOCAL_SW_API_BASE_URL;
 
   // Handle the timer countdown (only runs when timer > 0)
   useEffect(() => {
@@ -31,10 +25,10 @@ const Login = () => {
       }, 1000);
 
       return () => clearInterval(intervalId); // Clear the interval on component unmount
-    } else if (timer === 0 && sessionId) {
-      setCanResend(true); // Allow Resend OTP after 30 seconds
+    } else if (timer === 0 && !showDidNotGetOtp) {
+      setCanResend(true); // Allow Resend OTP after the timer reaches 0
     }
-  }, [timer, sessionId]);
+  }, [timer, showDidNotGetOtp]);
 
   // Function to handle sending OTP
   const sendOtp = async (e) => {
@@ -43,15 +37,8 @@ const Login = () => {
     setErrorMessage('');
     setSuccessMessage('');
 
-    // Check if resend limit is reached
-    if (resendAttempts >= 3) {
-      setErrorMessage('You have reached the OTP resend limit for today.');
-      setLoading(false);
-      return;
-    }
-
     try {
-      const response = await fetch('http://localhost:8000/sendOtp', {
+      const response = await fetch(`${LOCAL_SW_API_BASE_URL}/sendOtp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,13 +51,8 @@ const Login = () => {
       if (response.ok) {
         setSessionId(data.sessionId);
         setSuccessMessage('OTP sent successfully.');
-        setTimer(30); // Start the timer for 30 seconds
-        setCanResend(false); // Hide Resend OTP button
-        setResendAttempts((prev) => {
-          const newAttempts = prev + 1;
-          localStorage.setItem('resendAttempts', newAttempts); // Store attempts in localStorage
-          return newAttempts;
-        });
+        setShowDidNotGetOtp(true); // Ensure "Didn't get OTP?" button is shown again after sending OTP
+        setCanResend(false); // Hide Resend OTP button until needed
       } else {
         setErrorMessage(data.message || 'Failed to send OTP.');
       }
@@ -89,7 +71,7 @@ const Login = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('http://localhost:8000/verifyOtp', {
+      const response = await fetch(`${LOCAL_SW_API_BASE_URL}/verifyOtp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,14 +83,26 @@ const Login = () => {
 
       if (response.ok) {
         setSuccessMessage('OTP verified successfully.');
+        setSuccessMessage('OTP verified successfully.');
+        localStorage.setItem('token', data.token); // Store the JWT token in localStorage
+        localStorage.setItem('user', JSON.stringify(data.user)); // Store user details if needed
+        // Redirect to the dashboard or any other protected route
+        window.location.href = '/'; // Update this URL as needed
       } else {
-        setErrorMessage(data.message || 'Failed to verify OTP.');
+        setErrorMessage(data.message || 'Invalid OTP.');
       }
     } catch (error) {
       setErrorMessage('An error occurred while verifying OTP.');
     } finally {
       setLoading(false);
     }
+  };
+
+  // Function to start the 55-second timer when "Didn't get OTP?" is clicked
+  const handleDidNotGetOtpClick = () => {
+    setTimer(55); // Start the timer for 55 seconds
+    setShowDidNotGetOtp(false); // Hide the "Didn't get OTP?" button
+    setCanResend(false); // Ensure "Resend OTP" is not shown yet
   };
 
   return (
@@ -128,16 +122,15 @@ const Login = () => {
         <div className={styles.loginForm}>
           <div className={styles.h211}>LOGIN</div>
           <div className={styles.second11}>An OTP will be sent to this number.</div>
-          
+
           {!sessionId ? (
-            // Show send OTP form
             <form className={styles.form1} onSubmit={sendOtp}>
               <input
                 className={styles.input01}
                 placeholder="1 (702) 123-4567"
                 type="tel"
                 value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)} // Update phone number state
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 autoComplete="off"
                 required
               />
@@ -146,7 +139,6 @@ const Login = () => {
               </button>
             </form>
           ) : (
-            // Show verify OTP form
             <>
               <form className={styles.form1} onSubmit={verifyOtp}>
                 <input
@@ -154,7 +146,7 @@ const Login = () => {
                   placeholder="Enter OTP"
                   type="text"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)} // Update OTP state
+                  onChange={(e) => setOtp(e.target.value)}
                   autoComplete="off"
                   required
                 />
@@ -163,15 +155,34 @@ const Login = () => {
                 </button>
               </form>
 
-              {/* Resend OTP button, shown after 30 seconds */}
-              {canResend && (
+              {/* Display the "Didn't get OTP?" button */}
+              {showDidNotGetOtp && (
                 <button
-                  className={styles.resendBtn}
+                  className={styles.didNotGetOtpBtn} // Styling similar to the "Verify OTP" button
+                  onClick={handleDidNotGetOtpClick}
+                >
+                  Didn't get OTP?
+                </button>
+              )}
+
+              {/* Show the Resend OTP button with countdown timer */}
+              {canResend ? (
+                <button
+                  className={styles.resendBtn} // Styled similarly to "Verify OTP" button
                   onClick={sendOtp}
-                  disabled={resendAttempts >= 3 || loading}
+                  disabled={loading}
                 >
                   Resend OTP
                 </button>
+              ) : (
+                !showDidNotGetOtp && (
+                  <button
+                    className={`${styles.resendBtn} ${styles.disabled}`} // Add the 'disabled' style if not yet clickable
+                    disabled
+                  >
+                    Resend OTP in {timer} seconds
+                  </button>
+                )
               )}
             </>
           )}

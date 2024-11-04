@@ -9,12 +9,22 @@ const StatsPlaygroundDataVisual = (props) => {
 
   const teams = [
     "All",
-    ...new Set(props?.data.map((item) => item.team_short_name)),
+    ...new Set(
+      props?.data
+        ?.map((item) => item?.team_short_name)
+        .filter((team) => team) // Ensure no undefined or null values
+    ),
   ];
+  
   const roles = [
     "ALL",
-    ...new Set(props?.data.map((item) => item.playing_role.toUpperCase())),
+    ...new Set(
+      props?.data
+        ?.map((item) => (item?.playing_role ? item.playing_role.toUpperCase() : ''))
+        .filter((role) => role) // Filter out empty strings or invalid roles
+    ),
   ].filter((value, index, self) => self.indexOf(value) === index);
+  
 
   const filteredData = props?.data.filter(
     (item) =>
@@ -22,6 +32,16 @@ const StatsPlaygroundDataVisual = (props) => {
       (selectedRole === "ALL" ||
         item.playing_role.toUpperCase() === selectedRole)
   );
+
+  console.log(filteredData,"filtered data")
+
+  // const filteredData = useMemo(() => {
+  //   return props?.data.filter(
+  //     (item) =>
+  //       (selectedTeam === "All" || item?.team_short_name === selectedTeam) &&
+  //       (selectedRole === "ALL" || item?.playing_role.toUpperCase() === selectedRole)
+  //   );
+  // }, [props?.data, selectedTeam, selectedRole]);
 
   return (
     <>

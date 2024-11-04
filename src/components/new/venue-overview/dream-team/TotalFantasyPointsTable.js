@@ -6,8 +6,11 @@ const TotalFantasyPointsTable = ({ topPlayers }) => {
     <div key={index} className="progress-item">
       <div className="flex justify-between items-center mb-1">
         <span className="text-white text-sm font-semibold block">
-          {player.short_name} ({player.playing_role.toUpperCase()} -{" "}
-          {player.short_team_name})
+          {player.short_name} (
+          {player.playing_role
+            ? player.playing_role.toUpperCase()
+            : "Unknown Role"}{" "}
+          - {player.short_team_name})
         </span>
         <span className="text-white text-sm font-semibold block">
           {player.total_fantasy_points} pts - {player.stats.matches_played} M

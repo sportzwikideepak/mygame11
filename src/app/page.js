@@ -294,6 +294,7 @@ const Page = async () => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      
       <HomeMain
         data={seriesData.upcoming}
         live_matches={seriesData.live}

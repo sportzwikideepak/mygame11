@@ -1,3 +1,4 @@
+/* Container and Column Styling */
 .container {
   display: flex;
   width: 100vw;
@@ -18,6 +19,7 @@
   text-align: center;
 }
 
+/* Heading and Subheading Styles */
 .h211 {
   text-align: center;
   margin-bottom: 12px;
@@ -33,9 +35,11 @@
   color: #555;
 }
 
+/* Form Styling */
 .form1 {
   display: flex;
   flex-direction: column;
+  align-items: center; /* Center form elements */
 }
 
 .input01 {
@@ -43,22 +47,53 @@
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 25px;
+  width: 100%; /* Full width input */
+  max-width: 300px; /* Maximum width for better responsiveness */
 }
 
+/* Button Styling */
 .loginBtn {
-  padding: 10px;
+  padding: 10px 20px; /* Added padding for better button size */
   background-color: #002c93;
   color: white;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   text-transform: uppercase;
+  margin-top: 15px; /* Added margin for spacing */
+  width: 100%; /* Make buttons take full width */
+  max-width: 300px; /* Ensure consistent button size */
 }
 
 .loginBtn:hover {
   background-color: #00133f;
 }
 
+/* New styles for the "Didn't get OTP?" and "Resend OTP" buttons */
+.didNotGetOtpBtn, .resendBtn {
+  padding: 10px 20px; /* Increased padding for better button size */
+  background-color: #002c93; /* Consistent background color */
+  color: white;
+  border: none;
+  border-radius: 25px; /* Consistent border-radius */
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 15px; /* Ensure proper spacing */
+  width: 100%; /* Make buttons take full width */
+  max-width: 300px; /* Ensure consistent button size */
+}
+
+.didNotGetOtpBtn:hover, .resendBtn:hover {
+  background-color: #00133f; /* Consistent hover effect */
+}
+
+.disabled {
+  background-color: #ccc; /* Gray background when disabled */
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Image Column Styling */
 .imageColumn {
   width: 60%;
   background-color: #001240;
@@ -90,100 +125,8 @@
     width: 100%;
   }
 
-  .imageColumn {
-    display: none;
-  }
-}
-.container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
-
-.formColumn {
-  width: 40%;
-  background-color: #fff;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.loginForm {
-  width: 60%;
-  text-align: center;
-}
-
-.h211 {
-  text-align: center;
-  margin-bottom: 12px;
-  color: #002c93;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.24px;
-}
-
-.second11 {
-  margin-bottom: 2rem;
-  font-size: 14px;
-  color: #555;
-}
-
-.form1 {
-  display: flex;
-  flex-direction: column;
-}
-
-.input01 {
-  padding: 12px 15px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-}
-
-.loginBtn {
-  padding: 10px;
-  background-color: #002c93;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.loginBtn:hover {
-  background-color: #00133f;
-}
-
-.imageColumn {
-  width: 60%;
-  background-color: #001240;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.imageColumn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .formColumn {
-    width: 100%;
-    height: 100%;
-  }
-
-  .loginForm {
-    width: 100%;
+  .input01, .loginBtn, .didNotGetOtpBtn, .resendBtn {
+    max-width: 90%; /* Ensure buttons and input take up most of the screen on mobile */
   }
 
   .imageColumn {

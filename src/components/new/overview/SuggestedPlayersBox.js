@@ -3,6 +3,7 @@ import React from "react";
 import styles from "../../../app/[match-details]/matchDetails.module.css";
 
 const SuggestedPlayersBox = ({ topPlayers }) => {
+  console.log(topPlayers,"topplyers")
   return (
     <>
       <div className={styles.card1}>
@@ -21,13 +22,13 @@ const SuggestedPlayersBox = ({ topPlayers }) => {
             return (
               <>
                 <div className={styles.player}>
-                  <Image
+                  {/* <Image
                     height={20}
                     width={20}
-                    src="/static/Profile.svg"
+                    // src="/static/Profile.svg"
                     alt="Player 1"
                     className={styles.playerImage}
-                  />
+                  /> */}
                   <div className={styles.playerText}>{player?.short_name}</div>
                   <div className={styles.playerInfo}>
                     {player?.short_team_name}/

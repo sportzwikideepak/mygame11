@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Use next/navigation for App Router
 import styles from "./LiveSection.module.css";
 import Nav from "../common/Nav";
 
@@ -15,6 +18,12 @@ const menu_items = [
 ];
 
 const LiveSection = ({ match_info, active, currentUrl }) => {
+  const router = useRouter();
+
+  const handleRedirect = (url) => {
+    router.push(url);
+  };
+
   return (
     <>
       <div className={styles.live1}>
@@ -84,12 +93,40 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
                 <span className={styles.pollText}>WHO WILL WIN?</span>
               </div>
               <div className={styles.buttons}>
-                <button className={styles.voteButton}>
+                <button
+                  className={styles.voteButton}
+                  onClick={() =>
+                    handleRedirect(`/team/${match_info?.teama?.short_name}`)
+                  }
+                >
                   {match_info?.teama?.short_name}
                 </button>
-                <button className={styles.voteButton}>
+                <button
+                  className={styles.voteButton}
+                  onClick={() =>
+                    handleRedirect(`/team/${match_info?.teamb?.short_name}`)
+                  }
+                >
                   {match_info?.teamb?.short_name}
                 </button>
+              </div>
+            </div>
+            <div className={styles.poll}>
+              <div className={styles.question}>
+                <Image
+                  height={20}
+                  width={20}
+                  src="/static/Winimogi.svg"
+                  alt="emoji"
+                  className={styles.emoji}
+                />
+                <span
+                  className={styles.pollText}
+                  onClick={() => handleRedirect("/key-prediction")}
+                  style={{ cursor: "pointer" }}
+                >
+                  KEY PREDICTION IN TWO MINUTES
+                </span>
               </div>
             </div>
           </div>

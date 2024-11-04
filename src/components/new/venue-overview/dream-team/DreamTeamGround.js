@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const DreamTeamGround = ({ matchId, FantasyOverview, topPlayers }) => {
+  console.log(topPlayers,"topplayersdtaa")
   const [activeTab, setActiveTab] = useState(0); // 0 for Salary, 1 for Fantasy Points
 
   const handleTabChange = (tab) => {
@@ -10,6 +11,8 @@ const DreamTeamGround = ({ matchId, FantasyOverview, topPlayers }) => {
   };
 
   const distributePlayers = (topPlayers) => {
+
+    console.log(topPlayers,"topplatyerssssssssssssssssssssss")
     // Filter players by their roles
     const batters = topPlayers.filter(
       (player) => player.playing_role === "bat"
@@ -58,6 +61,7 @@ const DreamTeamGround = ({ matchId, FantasyOverview, topPlayers }) => {
   };
 
   let finalPlayers = distributePlayers(topPlayers);
+  console.log(finalPlayers,"finalplayersdata")
 
   const renderPlayer = (player) => (
     <div key={player.player_id} className="player-block text-center relative">

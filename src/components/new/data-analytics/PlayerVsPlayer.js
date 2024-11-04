@@ -39,23 +39,23 @@ const PlayerVsPlayer = ({ top_players }) => {
                     <div className={styles.playerCard}>
                       <div className={styles.compPlayer}>
                         <div className={styles.playerImage1}>
-                          <Image
+                          {/* <Image
                             height={74}
                             width={74}
                             src="/static/Player Comp.svg"
                             alt="Player Image"
-                          />
+                          /> */}
                           <h3 className={styles.h3}>
                             {array[index].short_name}
                           </h3>
                         </div>
                         <div className={styles.playerImage1}>
-                          <Image
+                          {/* <Image
                             height={74}
                             width={74}
                             src="/static/Player Comp.svg"
                             alt="Player Image"
-                          />
+                          /> */}
                           <h3 className={styles.h3}>
                             {array[index + 1].short_name}
                           </h3>

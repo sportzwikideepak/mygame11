@@ -37,12 +37,12 @@ const HomeHeader = ({ active }) => {
             </div>
             <div className={styles.tooltip}>
               <Link href="#">
-                <Image
+                {/* <Image
                   src="/static/Profile.svg"
                   alt=""
                   height={10}
                   width={10}
-                />
+                /> */}
               </Link>
               <span className={styles.tooltiptext}>Profile</span>
             </div>

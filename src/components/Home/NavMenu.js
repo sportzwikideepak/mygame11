@@ -7,13 +7,13 @@ const NavMenu = () => {
     <>
       <div className={styles.container}>
         <div className={styles.flexcolumn}>
-          <Image
+          {/* <Image
             height={20}
             width={20}
             src="/static/Profile.svg"
             alt="Profile Image"
             className={`${styles.profile} ${styles.image}`}
-          />
+          /> */}
           <div className={styles.profilename}>
             <Image
               height={20}

@@ -125,8 +125,10 @@ const BattingOrderPowerPlayMain = ({
                                     {player.shortName}
                                   </h4>
                                   <p className="text-xs text-gray-500 font-medium">
-                                    {player.teamName}/
-                                    {player.playingRole.toUpperCase()}
+                                    {player.teamName || "Unknown Team"}/
+                                    {player.playingRole
+                                      ? player.playingRole.toUpperCase()
+                                      : "Unknown Role"}
                                   </p>
                                 </div>
                               </div>

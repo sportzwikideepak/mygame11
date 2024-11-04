@@ -85,8 +85,11 @@ const DataMain = ({
               <div key={index} className="progress-item">
                 <div className="flex justify-between items-center mb-1">
                   <span className="text-white text-sm font-semibold block">
-                    {`${player.player_name.trim()} (${player.team_name})`}
+                    {`${player.player_name?.trim() || "Unknown Player"} (${
+                      player.team_name || "Unknown Team"
+                    })`}
                   </span>
+
                   <span className="text-white text-sm font-semibold block">
                     {`${player.avg_fantasy_points.toFixed(2)} pts - ${
                       player.match_count
