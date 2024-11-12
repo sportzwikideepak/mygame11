@@ -111,6 +111,13 @@
   border-color: #001240;
 }
 
+
+
+
+
+
+
+
 .matchesSection {
   flex: 1;
   width: 100%;
@@ -200,3 +207,37 @@
     overflow-y: visible;
   }
 }
+
+
+.matchName {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+}
+.competitionTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 30px 0 20px;
+  padding: 10px;
+  background-color: #f0f4f8; /* Light background for contrast */
+  border: 2px solid black; /* Visible border */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+  letter-spacing: 0.5px;
+}
+
+.competitionGroup {
+  margin-bottom: 30px;
+}
+
+
+/* .teamName {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 5px 0;
+} */

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // Use next/navigation for App Router
+import { useRouter } from "next/navigation"; 
 import styles from "./LiveSection.module.css";
 import Nav from "../common/Nav";
 
@@ -29,6 +29,7 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
       <div className={styles.live1}>
         <div className={styles.container}>
           <div className={styles.liveMain}>
+            {/* Match Card */}
             <div className={styles.card}>
               <div className={styles.header1}>
                 <span className={styles.live}>{match_info?.status_str}</span>
@@ -36,6 +37,8 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
                   - {match_info?.competition?.title}
                 </span>
               </div>
+              
+              {/* Team A Details */}
               <div className={styles.matchDetails}>
                 <div className={styles.teamInfo}>
                   <Image
@@ -58,6 +61,8 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
                   </span>
                 </div>
               </div>
+
+              {/* Team B Details */}
               <div className={styles.matchDetails}>
                 <div className={styles.teamInfo}>
                   <Image
@@ -81,6 +86,8 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
                 </div>
               </div>
             </div>
+
+            {/* Who Will Win Poll */}
             <div className={styles.poll}>
               <div className={styles.question}>
                 <Image
@@ -111,6 +118,8 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
                 </button>
               </div>
             </div>
+
+            {/* Key Prediction Link with match_id */}
             <div className={styles.poll}>
               <div className={styles.question}>
                 <Image
@@ -122,15 +131,17 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
                 />
                 <span
                   className={styles.pollText}
-                  onClick={() => handleRedirect("/key-prediction")}
+                  onClick={() => handleRedirect(`/key-prediction?match_id=${match_info?.match_id}`)}
                   style={{ cursor: "pointer" }}
                 >
-                  KEY PREDICTION IN TWO MINUTES
+                  KEY PREDICTION IN TWO MINUTES 
                 </span>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Navigation Menu */}
         <Nav menu={menu_items} active={active} currentUrl={currentUrl} />
       </div>
     </>

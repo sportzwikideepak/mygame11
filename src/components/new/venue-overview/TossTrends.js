@@ -7,7 +7,7 @@ const TossTrends = ({ venueTrends }) => {
         <div className="mb-4">
           <p className="text-gray-500 text-xs">
           <h4 className="text-primary text-sm font-bold">Toss Trends</h4>
-          <p className="text-gray-500 text-xs">As this venue</p>
+          <p className="text-gray-500 text-xs">At this venue</p>
             No match at this venue for Team A and Team B exists.
           </p>
         </div>

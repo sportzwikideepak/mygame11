@@ -1,0 +1,40 @@
+<svg width="807" height="980" viewBox="0 0 807 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect opacity="0.9" y="90" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" x="24" y="980" width="980" height="40" transform="rotate(-90 24 980)" fill="#48A924"/>
+<rect opacity="0.9" x="104" y="980" width="980" height="40" transform="rotate(-90 104 980)" fill="#48A924"/>
+<rect opacity="0.9" x="184" y="980" width="980" height="40" transform="rotate(-90 184 980)" fill="#48A924"/>
+<rect opacity="0.9" x="264" y="980" width="980" height="40" transform="rotate(-90 264 980)" fill="#48A924"/>
+<rect opacity="0.9" x="344" y="980" width="980" height="40" transform="rotate(-90 344 980)" fill="#48A924"/>
+<rect opacity="0.9" x="424" y="980" width="980" height="40" transform="rotate(-90 424 980)" fill="#48A924"/>
+<rect opacity="0.9" x="504" y="980" width="980" height="40" transform="rotate(-90 504 980)" fill="#48A924"/>
+<rect opacity="0.9" x="584" y="980" width="980" height="40" transform="rotate(-90 584 980)" fill="#48A924"/>
+<rect opacity="0.9" x="664" y="980" width="980" height="40" transform="rotate(-90 664 980)" fill="#48A924"/>
+<rect opacity="0.9" x="744" y="980" width="980" height="40" transform="rotate(-90 744 980)" fill="#48A924"/>
+<path opacity="0.9" d="M0 20C0 8.95431 8.95431 0 20 0H787C798.046 0 807 8.95431 807 20V40H0V20Z" fill="#48A924"/>
+<rect opacity="0.9" y="40" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="140" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="190" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="240" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="290" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="340" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="390" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="440" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="490" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="540" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="590" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="640" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="690" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="740" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="790" width="807" height="50" fill="#48A924"/>
+<rect opacity="0.9" y="840" width="807" height="50" fill="#49AD22"/>
+<rect opacity="0.9" y="890" width="807" height="50" fill="#48A924"/>
+<path opacity="0.9" d="M0 940H807V960C807 971.046 798.046 980 787 980H20C8.95429 980 0 971.046 0 960V940Z" fill="#49AD22"/>
+<path d="M590.8 490C590.8 565.628 569.823 634.087 535.917 683.634C502.012 733.182 455.191 763.8 403.5 763.8C351.809 763.8 304.988 733.182 271.083 683.634C237.177 634.087 216.2 565.628 216.2 490C216.2 414.372 237.177 345.913 271.083 296.366C304.988 246.818 351.809 216.2 403.5 216.2C455.191 216.2 502.012 246.818 535.917 296.366C569.823 345.913 590.8 414.372 590.8 490Z" fill="#3D981A" stroke="white" stroke-width="0.4"/>
+<rect x="333" y="321" width="141" height="338" rx="5" fill="#B8AA48"/>
+<line x1="327.992" y1="365.6" x2="479.012" y2="365.6" stroke="#ECF1FF" stroke-width="0.8"/>
+<line x1="363.102" y1="365.51" x2="363.102" y2="321.49" stroke="#ECF1FF" stroke-width="0.8"/>
+<line x1="443.102" y1="365.51" x2="443.102" y2="321.49" stroke="#ECF1FF" stroke-width="0.8"/>
+<line y1="-0.4" x2="151.02" y2="-0.4" transform="matrix(1 0 0 -1 327.992 614.49)" stroke="#ECF1FF" stroke-width="0.8"/>
+<line y1="-0.4" x2="44.02" y2="-0.4" transform="matrix(0 1 1 0 363.502 614.98)" stroke="#ECF1FF" stroke-width="0.8"/>
+<line y1="-0.4" x2="44.02" y2="-0.4" transform="matrix(0 1 1 0 443.502 614.98)" stroke="#ECF1FF" stroke-width="0.8"/>
+</svg>

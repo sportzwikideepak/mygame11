@@ -28,7 +28,7 @@ const BattingFirst = ({ venueTrends }) => {
               <div className="progress-item col-span-12">
                 <div className="flex justify-between items-center mb-1">
                   <span className="text-gray-500 text-xs font-semibold block">
-                    Choose to bat first
+                    Choose to bat first 
                   </span>
                   <span className="text-black text-xs font-semibold block">
                     {venueTrends.chose_to_bat_first}
