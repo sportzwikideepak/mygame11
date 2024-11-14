@@ -489,35 +489,35 @@ const KeyInsight = () => {
               </div>
               <div className="max-w-4xl mx-auto mb-4">
                 <div className="flex gap-2">
-                  <div>
+                  {/* <div>
                     <h1
                       className="text-lg font-bold w-full whitespace-nowrap"
                       style={{ fontWeight: 700 }}
                     >
                       PITCH TRENDS
                     </h1>
-                  </div>
+                  </div> */}
                   <div className="border-t border-dotted border-customGray w-full mt-auto"></div>
                 </div>
-                <div className="w-full mt-3">
+                {/* <div className="w-full mt-3">
                   <h1
                     className="text-base font-semibold leading-6 tracking-normal text-left"
                     style={{ fontVariationSettings: "'opsz' auto" }}
                   >
                     Batting vs Bowling
                   </h1>
-                </div>
+                </div> */}
                 <div className="w-full max-w-4xl mt-3">
                   {/* First Progress Bar */}
-                  <div className="flex justify-between items-center mb-2">
+                  {/* <div className="flex justify-between items-center mb-2">
                     <span className="text-black font-medium text-sm leading-6">
                       Batting Fpts
                     </span>
                     <span className="text-black font-medium text-sm leading-6">
                       Bowling Fpts
                     </span>
-                  </div>
-                  <div className="relative w-full h-10 bg-gray-800 rounded-full overflow-hidden mb-3">
+                  </div> */}
+                  {/* <div className="relative w-full h-10 bg-gray-800 rounded-full overflow-hidden mb-3">
                     <div
                       className="absolute left-0 top-0 h-full bg-gray-400 rounded-full"
                       style={{ width: "0%" }}
@@ -529,24 +529,24 @@ const KeyInsight = () => {
                     <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white font-medium text-sm leading-6">
                       100%
                     </span>
-                  </div>
-                  <div className="w-full mt-3">
+                  </div> */}
+                  {/* <div className="w-full mt-3">
                     <h1
                       className="text-base font-semibold leading-6 tracking-normal text-left mb-3"
                       style={{ fontVariationSettings: "'opsz' auto" }}
                     >
                       Pace vs Spin
                     </h1>
-                  </div>
+                  </div> */}
                   {/* Second Progress Bar */}
-                  <div className="flex justify-between items-center mb-2">
+                  {/* <div className="flex justify-between items-center mb-2">
                     <span className="text-black font-medium text-sm leading-6">
                       Pace FPts
                     </span>
                     <span className="text-black font-medium text-sm leading-6">
                       Spin FPts
-                    </span>
-                  </div>
+                    </span> */}
+                  {/* </div> */}
                   <div className="relative w-full h-10 bg-gray-800 rounded-full overflow-hidden">
                     <div
                       className="absolute left-0 top-0 h-full bg-gray-400 rounded-full"
