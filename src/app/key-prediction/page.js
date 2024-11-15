@@ -17,9 +17,37 @@ const KeyInsight = () => {
   const [venueStats, setVenueStats] = useState(null);
   const [tossDecisionStats, setTossDecisionStats] = useState(null);
   const [activeTab, setActiveTab] = useState(0); // Track active tab
+  const [topFormPlayers, setTopFormPlayers] = useState([]); // State for top form players
+  console.log(topFormPlayers,"topformplayers")
+  
 
   const LOCAL_SW_API_BASE_URL =
-    "https://hammerhead-app-jkdit.ondigitalocean.app"; // Ensure this is defined at the top
+    "https://hammerhead-app-jkdit.ondigitalocean.app";
+
+  // Function to fetch top players in form
+  const fetchTopFormPlayers = async (matchId) => {
+    try {
+      const response = await axios.get(
+        `https://hammerhead-app-jkdit.ondigitalocean.app/api/fantasy-points/${matchId}`
+      );
+      const playersData = response.data.response;
+      setTopFormPlayers(playersData);
+    } catch (error) {
+      console.error("Error fetching top form players:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (matchId) {
+      fetchTopFormPlayers(matchId); // Fetch top form players when match ID is available
+    }
+  }, [matchId]);
+
+
+
+
+
+
 
   const fetchVenueStats = async (venueId) => {
     try {
@@ -172,6 +200,10 @@ const KeyInsight = () => {
     setActiveTab(index);
   };
 
+
+  const topTwoPlayers = [...topFormPlayers]
+    .sort((a, b) => b.total_fantasy_points - a.total_fantasy_points)
+    .slice(0, 2);
   return (
     <>
       <div className="bg-[#0A1A4B] flex items-center justify-center w-full px-4 py-5">
@@ -564,116 +596,83 @@ const KeyInsight = () => {
 
                 {/* SUGGESTED PLAYERS */}
                 <div className="max-w-4xl mx-auto mb-4">
-                  <div className="flex gap-2">
-                    <div>
-                      <h1
-                        className="text-lg font-bold w-full whitespace-nowrap"
-                        style={{ fontWeight: 700 }}
-                      >
-                        SUGGESTED PLAYERS
-                      </h1>
-                    </div>
-                    <div className="border-t border-dotted border-customGray w-full mt-auto"></div>
-                  </div>
-                  <div className="flex space-x-4 w-full max-w-screen-lg mt-3">
-                    {/* Card 1 */}
-                    <div className="bg-white rounded-lg custom-shadow p-4 flex flex-col items-center w-full">
-                      <div className="bg-[#EEEEF0] rounded-full p-2 w-[144px] flex justify-center items-center mb-2">
-                        <Image
-                          className="h-7 w-12"
-                          height="50"
-                          src="Images/team1_jerrcy.svg"
-                          alt=""
-                          width="50"
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-[16px] font-semibold leading-[16px] text-center tracking-normal mb-2">
-                          R Sharma
-                        </p>
-                        <p className="text-gray-600 text-[14px] font-normal leading-[20px] text-center tracking-normal">
-                          WK|ENG
-                        </p>
-                      </div>
-                    </div>
-                    {/* Card 2 */}
-                    <div className="bg-white rounded-lg custom-shadow p-4 flex flex-col items-center w-full">
-                      <div className="bg-[#EEEEF0] rounded-full p-2 w-[144px] flex justify-center items-center mb-2">
-                        <Image
-                          className="h-7 w-12"
-                          height="50"
-                          src="Images/team2_jeercy.svg"
-                          alt=""
-                          width="50"
-                        />
-                      </div>
-                      <div className="text-center">
-                        <p className="text-[16px] font-semibold leading-[16px] text-center tracking-normal mb-2">
-                          V Kohli
-                        </p>
-                        <p className="text-gray-600 text-[14px] font-normal leading-[20px] text-center tracking-normal">
-                          WK|ENG
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <div className="flex gap-2">
+    <div>
+      <h1 className="text-lg font-bold w-full whitespace-nowrap">
+        SUGGESTED PLAYERS
+      </h1>
+    </div>
+    <div className="border-t border-dotted border-customGray w-full mt-auto"></div>
+  </div>
+  <div className="flex space-x-4 w-full max-w-screen-lg mt-3">
+    {/* Suggested Players Cards */}
+    {topTwoPlayers.map((player, index) => (
+      <div key={index} className="bg-white rounded-lg custom-shadow p-4 flex flex-col items-center w-full">
+        <div className="bg-[#EEEEF0] rounded-full p-2 w-[144px] flex justify-center items-center mb-2">
+          <Image
+            className="h-7 w-12"
+            height="50"
+            width="50"
+            src={`Images/${index === 0 ? 'team1_jerrcy.svg' : 'team2_jeErcy.svg'}`}
+            alt={`${player.team_name} Jersey`}
+          />
+        </div>
+        <div className="text-center">
+          <p className="text-[16px] font-semibold leading-[16px] text-center tracking-normal mb-2">
+            {player.player_name}
+          </p>
+          <p className="text-gray-600 text-[14px] font-normal leading-[20px] text-center tracking-normal">
+            {player.playing_role.toUpperCase()} | {player.team_name || "N/A"}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
                 {/* PLAYER IN TOP FORM */}
                 <div className="max-w-4xl mx-auto mb-4">
-                  <div className="flex gap-2">
-                    <div>
-                      <h1
-                        className="text-lg font-bold w-full whitespace-nowrap"
-                        style={{ fontWeight: 700 }}
-                      >
-                        PLAYER IN TOP FORM
-                      </h1>
-                      <p className="text-gray-600 text-sm font-medium leading-6 whitespace-nowrap">
-                        (LAST 5 T20’S)
-                      </p>
-                    </div>
-                    <div className="border-t border-dotted border-customGray w-full mt-auto"></div>
-                  </div>
-                  <div className="space-y-3 w-full mt-3">
-                    <div className="bg-white rounded-lg py-2 px-3 flex items-center justify-between custom-shadow">
-                      <div className="flex items-center">
-                        <div className="bg-[#EEEEF0] rounded-full p-2 justify-center items-center">
-                          <Image
-                            className="h-7 w-7"
-                            height={50}
-                            width={50}
-                            src="/Images/team1_jerrcy.svg" // Leading slash is important
-                            alt="Team 1 Jersey"
-                          />
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-lg font-bold">R Sharma</div>
-                          <div className="text-gray-500">WK | ENG</div>
-                        </div>
-                      </div>
-                      <div className="text-lg font-bold">80 fpts</div>
-                    </div>
-                    <div className="bg-white rounded-lg py-2 px-3 flex items-center justify-between custom-shadow mt-0">
-                      <div className="flex items-center">
-                        <div className="bg-[#EEEEF0] rounded-full p-2 justify-center items-center">
-                          <Image
-                            className="h-7 w-7"
-                            height={50}
-                            width={50}
-                            src="/Images/team2_jerrcy.svg" // Leading slash is important
-                            alt="Team 2 Jersey"
-                          />
-                        </div>
-                        <div className="ml-4">
-                          <div className="text-lg font-bold">V Kohli</div>
-                          <div className="text-gray-500">WK | ENG</div>
-                        </div>
-                      </div>
-                      <div className="text-lg font-bold">75 fpts</div>
-                    </div>
-                  </div>
+      <div className="flex gap-2">
+        <div>
+          <h1 className="text-lg font-bold w-full whitespace-nowrap">
+            PLAYER IN TOP FORM
+          </h1>
+          <p className="text-gray-600 text-sm font-medium leading-6 whitespace-nowrap">
+            (LAST 2 T20’S)
+          </p>
+        </div>
+        <div className="border-t border-dotted border-customGray w-full mt-auto"></div>
+      </div>
+
+      <div className="space-y-3 w-full mt-3">
+        {topTwoPlayers.map((player, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg py-2 px-3 flex items-center justify-between custom-shadow"
+          >
+            <div className="flex items-center">
+              <div className="bg-[#EEEEF0] rounded-full p-2 justify-center items-center">
+              <Image
+          className="h-7 w-7"
+          height={50}
+          width={50}
+          src={`Images/${index === 0 ? 'team1_jerrcy.svg' : 'team2_jeErcy.svg'}`}
+          alt={`${player.team_name} Jersey`}
+        />
+              </div>
+              <div className="ml-4">
+                <div className="text-lg font-bold">{player.player_name}</div>
+                <div className="text-gray-500">
+                  {player.playing_role.toUpperCase()} | {player.team_name || "N/A"}
                 </div>
+              </div>
+            </div>
+            <div className="text-lg font-bold">{player.total_fantasy_points} fpts</div>
+          </div>
+        ))}
+      </div>
+    </div>
               </div>
               {/* TOP PERFORMERS AT THIS VENUE */}
               <div className="max-w-4xl mx-auto mb-4">
@@ -731,7 +730,7 @@ const KeyInsight = () => {
                 </div>
               </div>
               {/* POWER PLAYS (BATTERS) */}
-              <div className="max-w-4xl mx-auto mb-4">
+              {/* <div className="max-w-4xl mx-auto mb-4">
                 <div className="flex gap-2">
                   <div>
                     <h1
@@ -781,9 +780,9 @@ const KeyInsight = () => {
                     <div className="text-lg font-bold">75 fpts</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* POWER PLAYS (BOWLERS) */}
-              <div className="max-w-4xl mx-auto mb-4">
+              {/* <div className="max-w-4xl mx-auto mb-4">
                 <div className="flex gap-2">
                   <div>
                     <h1
@@ -833,9 +832,9 @@ const KeyInsight = () => {
                     <div className="text-lg font-bold">75 fpts</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* DEATH OVERS (BOWLERS) */}
-              <div className="max-w-4xl mx-auto mb-4">
+              {/* <div className="max-w-4xl mx-auto mb-4">
                 <div className="flex gap-2">
                   <div>
                     <h1
@@ -885,7 +884,7 @@ const KeyInsight = () => {
                     <div className="text-lg font-bold">75 fpts</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="max-w-4xl mx-auto">
                 <div className="flex gap-2 mb-5">
