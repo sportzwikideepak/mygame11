@@ -18,8 +18,13 @@ const KeyInsight = () => {
   const [tossDecisionStats, setTossDecisionStats] = useState(null);
   const [activeTab, setActiveTab] = useState(0); // Track active tab
   const [topFormPlayers, setTopFormPlayers] = useState([]); // State for top form players
-  console.log(topFormPlayers,"topformplayers")
-  
+  const [topPlayerVenue, setTopPlayerVenue] = useState([]);
+  // const [winStats, setWinStats] = useState([]);
+
+  // console.log(topFormPlayers,"topformplayers")
+  const topTwoPlayers = [...topFormPlayers]
+  .sort((a, b) => b.total_fantasy_points - a.total_fantasy_points)
+  .slice(0, 2);
 
   const LOCAL_SW_API_BASE_URL =
     "https://hammerhead-app-jkdit.ondigitalocean.app";
@@ -37,11 +42,78 @@ const KeyInsight = () => {
     }
   };
 
+  const [teamJerseyMap, setTeamJerseyMap] = useState({});
+
+  
+
+  useEffect(() => {
+    const tempMap = {};
+    let jerseyCount = 1;
+
+    // Dynamically assign jerseys to the first two unique teams
+    topPlayerVenue.forEach(player => {
+      const teamName = player.team_name ? player.team_name.toLowerCase() : '';
+
+      // Only assign if we haven't seen this team yet and we have jerseys left
+      if (!tempMap[teamName] && jerseyCount <= 2) {
+        tempMap[teamName] = jerseyCount === 1 ? 'team1_jerrcy.svg' : 'team2_jeErcy.svg';
+        jerseyCount++;
+      }
+    });
+
+    setTeamJerseyMap(tempMap);
+    
+  }, [topPlayerVenue,topTwoPlayers]);
+
   useEffect(() => {
     if (matchId) {
       fetchTopFormPlayers(matchId); // Fetch top form players when match ID is available
+
     }
   }, [matchId]);
+
+
+    // const fetchWinStats = async () => {
+    //   try {
+    //     const response = await axios.get(`https://hammerhead-app-jkdit.ondigitalocean.app/api/win-percentage/${venueId}`);
+    //     const { win_percentage } = response.data.response;
+
+    //     // Calculate win and loss percentages
+    //     const winPercentage = parseInt(win_percentage, 10);
+    //     const lossPercentage = 100 - winPercentage;
+
+    //     // Update the state
+    //     setWinStats({ winPercentage, lossPercentage });
+    //   } catch (error) {
+    //     console.error("Error fetching win stats:", error);
+    //   } 
+    // };
+
+
+
+
+  useEffect(() => {
+    const fetchTopPlayersAtVenue = async () => {
+      try {
+        // setLoading(true);
+        console.log("hitting1")
+        const response = await axios.get(
+          `https://hammerhead-app-jkdit.ondigitalocean.app/api/top-players-at-venue/${matchId}`
+        );
+        console.log(response,"response")
+        if (response.data.status === 'ok') {
+          setTopPlayerVenue(response.data.response);
+        } else {
+          throw new Error('Failed to fetch top players at venue');
+        }
+      } catch (err) {
+        console.error('Error:', err);
+      } 
+    };
+
+    fetchTopPlayersAtVenue();
+  }, [matchId]);
+
 
 
 
@@ -90,16 +162,29 @@ const KeyInsight = () => {
       if (data.response.venue?.venue_id) {
         fetchVenueStats(data.response.venue.venue_id);
       }
-
+   
       if (data.response.venue?.venue_id) {
         //     fetchTossDecisionStats(venueId);
 
         fetchTossDecisionStats(data.response.venue.venue_id);
+        
+        
       }
     } catch (error) {
       console.error("Error fetching match data:", error);
     }
   };
+
+  // useEffect(() => {
+  //   let hasFetched = false; // Local flag to control execution
+
+  //   if (matchData?.venue?.venue_id && !hasFetched) {
+  //     fetchWinStats(matchData.venue.venue_id);
+  //     hasFetched = true; // Ensure it doesn't run again
+  //   }
+  // }, [matchData?.venue?.venue_id]);
+
+
   const fetchTeamWinningChances = async (teamIdA, teamIdB) => {
     try {
       const res = await fetch(
@@ -201,9 +286,7 @@ const KeyInsight = () => {
   };
 
 
-  const topTwoPlayers = [...topFormPlayers]
-    .sort((a, b) => b.total_fantasy_points - a.total_fantasy_points)
-    .slice(0, 2);
+
   return (
     <>
       <div className="bg-[#0A1A4B] flex items-center justify-center w-full px-4 py-5">
@@ -675,60 +758,48 @@ const KeyInsight = () => {
     </div>
               </div>
               {/* TOP PERFORMERS AT THIS VENUE */}
-              <div className="max-w-4xl mx-auto mb-4">
-                <div className="flex gap-2">
-                  <div>
-                    <h1
-                      className="text-lg font-bold w-full whitespace-nowrap"
-                      style={{ fontWeight: 700 }}
-                    >
-                      TOP PERFORMERS AT THIS VENUE
-                    </h1>
-                    <p className="text-gray-600 text-sm font-medium leading-6 whitespace-nowrap">
-                      (LAST 5 T20’S)
-                    </p>
-                  </div>
-                  <div className="border-t border-dotted border-customGray w-full mt-auto"></div>
-                </div>
-                <div className="space-y-3 w-full mt-3">
-                  <div className="bg-white rounded-lg py-2 px-3 flex items-center justify-between custom-shadow">
-                    <div className="flex items-center">
-                      <div className="bg-[#EEEEF0] rounded-full p-2 justify-center items-center">
-                        <Image
-                          className="h-7 w-7"
-                          height="50"
-                          src="Images/team1_jerrcy.svg"
-                          alt=""
-                          width="50"
-                        />
-                      </div>
-                      <div className="ml-4">
-                        <div className="text-lg font-bold">R Sharma</div>
-                        <div className="text-gray-500">WK | ENG</div>
-                      </div>
-                    </div>
-                    <div className="text-lg font-bold">80 fpts</div>
-                  </div>
-                  <div className="bg-white rounded-lg py-2 px-3 flex items-center justify-between custom-shadow mt-0">
-                    <div className="flex items-center">
-                      <div className="bg-[#EEEEF0] rounded-full p-2 justify-center items-center">
-                        <Image
-                          className="h-7 w-7"
-                          height="50"
-                          src="Images/team2_jeercy.svg"
-                          alt=""
-                          width="50"
-                        />
-                      </div>
-                      <div className="ml-4">
-                        <div className="text-lg font-bold">V Kohli</div>
-                        <div className="text-gray-500">WK | ENG</div>
-                      </div>
-                    </div>
-                    <div className="text-lg font-bold">75 fpts</div>
-                  </div>
+              <div className="space-y-3 w-full mt-3">
+              <div>
+          <h1 className="text-lg font-bold w-full whitespace-nowrap">
+            TOP PLAYER AT THIS VENUE
+          </h1>
+          <p className="text-gray-600 text-sm font-medium leading-6 whitespace-nowrap">
+            (LAST T20’S)
+          </p>
+        </div>
+      {topPlayerVenue.map((player) => {
+        const teamName = player.team_name ? player.team_name.toLowerCase() : '';
+        const jerseyImage = teamJerseyMap[teamName] || 'default_jerrcy.svg';
+
+        return (
+          <div
+            key={player.player_id}
+            className="bg-white rounded-lg py-2 px-3 flex items-center justify-between custom-shadow"
+          >
+            <div className="flex items-center">
+              <div className="bg-[#EEEEF0] rounded-full p-2 justify-center items-center">
+                <Image
+                  className="h-7 w-7"
+                  height={50}
+                  width={50}
+                  src={`Images/${jerseyImage}`}
+                  alt={`${player.team_name} Jersey`}
+                />
+              </div>
+              <div className="ml-4">
+                <div className="text-lg font-bold">{player.player_name}</div>
+                <div className="text-gray-500">
+                  {player.playing_role.toUpperCase()} | {player.team_name || "N/A"}
                 </div>
               </div>
+            </div>
+            <div className="text-lg font-bold">
+              {player.total_fantasy_points} fpts
+            </div>
+          </div>
+        );
+      })}
+    </div>
               {/* POWER PLAYS (BATTERS) */}
               {/* <div className="max-w-4xl mx-auto mb-4">
                 <div className="flex gap-2">

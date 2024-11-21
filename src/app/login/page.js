@@ -83,11 +83,17 @@ const Login = () => {
 
       if (response.ok) {
         setSuccessMessage('OTP verified successfully.');
-        setSuccessMessage('OTP verified successfully.');
+        // setSuccessMessage('OTP verified successfully.');
         localStorage.setItem('token', data.token); // Store the JWT token in localStorage
-        localStorage.setItem('user', JSON.stringify(data.user)); // Store user details if needed
-        // Redirect to the dashboard or any other protected route
+        // localStorage.setItem('user', JSON.stringify(data.user)); // Store user details if needed
+        localStorage.setItem("usersp", JSON.stringify(data.user)); // Store user details (including user_id)
+
+
+        // router.push(`/live-section?user_id=${data.user.id}`);
         window.location.href = '/'; // Update this URL as needed
+
+
+        // Redirect to the dashboard or any other protected route
       } else {
         setErrorMessage(data.message || 'Invalid OTP.');
       }
