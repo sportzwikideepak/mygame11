@@ -151,6 +151,7 @@ const KeyInsight = () => {
         `https://rest.entitysport.com/v2/matches/${matchId}/info?token=73d62591af4b3ccb51986ff5f8af5676`
       );
       const data = await response.json();
+      console.log(data.response,"dataresponse")
       setMatchData(data.response);
 
       const winningChancesData = await fetchTeamWinningChances(
@@ -326,8 +327,8 @@ const KeyInsight = () => {
               {new Date(matchData?.date_start_ist).toLocaleString()}
             </div>
             <div className="mt-2 text-sm flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
-              <span>• {matchData?.venue.name}</span>
-              <span>• {matchData?.competition.title}</span>
+              <span>• {matchData?.venue?.name}</span>
+              <span>• {matchData?.competition?.title}</span>
             </div>
           </div>
         </div>

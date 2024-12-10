@@ -222,25 +222,25 @@ const LiveSection = ({ match_info, active, currentUrl }) => {
               <div className={styles.buttons}>
                 <button
                   className={styles.voteButton}
-                  onClick={() => submitVote(match_info.teama.short_name)}
+                  onClick={() => submitVote(match_info?.teama?.short_name)}
                 >
-                  {match_info.teama.short_name}
+                  {match_info?.teama?.short_name}
                 </button>
                 <button
                   className={styles.voteButton}
-                  onClick={() => submitVote(match_info.teamb.short_name)}
+                  onClick={() => submitVote(match_info?.teamb?.short_name)}
                 >
-                  {match_info.teamb.short_name}
+                  {match_info?.teamb?.short_name}
                 </button>
               </div>
               {/* Poll Results */}
               {pollResults && pollResults.length > 0 && (
                 <div className={styles.compactResults}>
                   {pollResults.map((result) => {
-                    const isTeamA = result.team_id === match_info.teama.team_id;
+                    const isTeamA = result.team_id === match_info?.teama?.team_id;
                     const teamName = isTeamA
-                      ? match_info.teama.short_name
-                      : match_info.teamb.short_name;
+                      ? match_info?.teama?.short_name
+                      : match_info?.teamb?.short_name;
 
                     return (
                       <div
