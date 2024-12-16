@@ -12,7 +12,31 @@ const HomeMain = ({ data, live_matches, completed_matches }) => {
   const [hydrated, setHydrated] = useState(false);
   const [category, setCategory] = useState("all");
   const [timeZone, setTimeZone] = useState("Asia/Kolkata");
+  const [userDetails, setUserDetails] = useState(null);
+  const [daysLeft, setDaysLeft] = useState(null);
 
+  console.log(userDetails,"usersdetails")
+
+
+  useEffect(() => {
+    // Retrieve user details from localStorage or API
+    const user = JSON.parse(localStorage.getItem("usersp"));
+    setUserDetails(user);
+
+    if (user?.trial_end_date) {
+      const today = new Date();
+      const endDate = new Date(user.trial_end_date);
+      const difference = Math.ceil((endDate - today) / (1000 * 60 * 60 * 24));
+
+      if (difference > 0) {
+        setDaysLeft(difference);
+      } else {
+        setDaysLeft("expired");
+      }
+    }
+  }, []);
+  
+  
   useEffect(() => {
     const type = searchParams.get("type");
     if (type === "completed") {
@@ -73,6 +97,17 @@ const HomeMain = ({ data, live_matches, completed_matches }) => {
             priority
           />
         </div>
+        {userDetails && (
+          <div className={styles.trialInfo}>
+            {daysLeft === "expired" ? (
+              <p className={styles.expiredText}>Trial has expired</p>
+            ) : (
+              <p className={styles.remainingText}>
+                {daysLeft} day{daysLeft > 1 ? "s" : ""} left in trial
+              </p>
+            )}
+          </div>
+        )}
       </div>
       <div className={styles.rightSection}>
         <div className={styles.sticky}>
@@ -101,6 +136,8 @@ const HomeMain = ({ data, live_matches, completed_matches }) => {
             >
               Completed
             </a>
+            
+            
           </div>
           <div className={styles.filterContainer}>
             <label htmlFor="categoryFilter" className={styles.filterLabel}>

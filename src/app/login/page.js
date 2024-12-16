@@ -14,6 +14,8 @@ const Login = () => {
   const [timer, setTimer] = useState(0); // Timer in seconds (starts at 0)
   const [canResend, setCanResend] = useState(false); // Track when to show Resend OTP button
   const [showDidNotGetOtp, setShowDidNotGetOtp] = useState(true); // Track visibility of the "Didn't get OTP?" button
+  const [userDetails, setUserDetails] = useState(null); // Store user details including trial info
+
 
   const LOCAL_SW_API_BASE_URL = process.env.LOCAL_SW_API_BASE_URL;
 
@@ -87,6 +89,8 @@ const Login = () => {
         localStorage.setItem('token', data.token); // Store the JWT token in localStorage
         // localStorage.setItem('user', JSON.stringify(data.user)); // Store user details if needed
         localStorage.setItem("usersp", JSON.stringify(data.user)); // Store user details (including user_id)
+        setUserDetails(data.user); // Store user details in state
+
 
 
         // router.push(`/live-section?user_id=${data.user.id}`);
