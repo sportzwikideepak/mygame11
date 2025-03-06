@@ -87,7 +87,7 @@ const HomeMain = ({ data, live_matches, completed_matches }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.leftSection}>
+      {/* <div className={styles.leftSection}>
         <div className={styles.logoContainer}>
           <Image
             height={500}
@@ -108,7 +108,7 @@ const HomeMain = ({ data, live_matches, completed_matches }) => {
             )}
           </div>
         )}
-      </div>
+      </div> */}
       <div className={styles.rightSection}>
         <div className={styles.sticky}>
           <div className={styles.buttonContainer}>

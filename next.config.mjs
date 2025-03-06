@@ -17,7 +17,9 @@ const nextConfig = {
       "placehold.co",
       "cloudfront.net",
       "d13ir53smqqeyp.cloudfront.net",
-      "storage.googleapis.com"  // Added Google Cloud Storage
+      "storage.googleapis.com" , // Added Google Cloud Storage
+      "gcdnimages.entitysport.com"
+
     ],
   },
 };
